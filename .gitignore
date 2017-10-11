@@ -1,0 +1,8 @@
+.idea/
+node_modules/
+__old/
+platforms/
+*.iml
+*.js
+!hooks/**/*.js
+*.map
