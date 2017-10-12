@@ -1,1 +1,7 @@
-<page-router-outlet></page-router-outlet>
+<app-action-bar (openMenu)="onOpenMenu()"></app-action-bar>
+<RadSideDrawer tkExampleTitle tkToggleNavButton>
+  <app-menu tkDrawerContent (selectItem)="onSelectItem($event)"></app-menu>
+  <StackLayout tkMainContent>
+    <page-router-outlet></page-router-outlet>
+  </StackLayout>
+</RadSideDrawer>
