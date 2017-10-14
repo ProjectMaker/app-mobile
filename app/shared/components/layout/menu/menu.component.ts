@@ -4,16 +4,15 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   moduleId: module.id,
   selector: 'app-menu',
   templateUrl: 'menu.html',
+  styleUrls: ['./menu.common.css']
 })
 export class MenuComponent implements OnInit {
 
-  @Output() selectItem = new EventEmitter();
+  @Output() selectedItem = new EventEmitter();
 
-  public ngOnInit() {
-    console.log('ON INIT');
-  }
+  public ngOnInit() { }
 
   public onSelectItem(item) {
-    this.selectItem.next(item);
+    this.selectedItem.next(item);
   }
 };
