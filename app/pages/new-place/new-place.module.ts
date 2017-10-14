@@ -2,15 +2,15 @@ import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
 import { NativeScriptRouterModule } from "nativescript-angular/router";
 import { NativeScriptModule } from "nativescript-angular/nativescript.module";
 
-import { routes, navigatableComponents } from "./home.routing";
+import { routes, navigatableComponents } from "./new-place.routing";
 
-import { HomeComponent } from './components/home/home.component';
+import { NewPlaceComponent } from './components/new-place/new-place.component';
 import { SharedModule } from '../../shared/shared.module';
 
 @NgModule({
-  entryComponents: [ HomeComponent ],
+  entryComponents: [ NewPlaceComponent ],
   declarations: [
-    HomeComponent,
+    NewPlaceComponent,
     ...navigatableComponents
   ],
   imports: [
@@ -25,4 +25,4 @@ import { SharedModule } from '../../shared/shared.module';
   ],
   schemas: [NO_ERRORS_SCHEMA],
 })
-export class HomeModule {}
+export class NewPlaceModule {}
