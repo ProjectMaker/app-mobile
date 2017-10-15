@@ -1,3 +1,11 @@
-<StackLayout>
-  <Label text="Welcome Friends!"></Label>
+<StackLayout class="page">
+  <Label text="Mes amis" class="m-b-20"></Label>
+  <ScrollView>
+    <FlexboxLayout flexWrap="wrap" justifyContent="space-between">
+      <StackLayout *ngFor="let friend of friends" [flexGrow]="friend === friends[0] ? 1 : 0"  class="m-b-5">
+        <Image src="{{ friend.img }}" stretch="none"></Image>
+        <Label text="{{ friend.pseudo }}" textAlignment="center"></Label>
+      </StackLayout>
+    </FlexboxLayout>
+  </ScrollView>
 </StackLayout>
