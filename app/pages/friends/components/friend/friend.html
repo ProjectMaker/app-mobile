@@ -10,7 +10,9 @@
         <Label text="- {{ place.name }}"></Label>
         <Button (tap)="onExpand(place)" [text]="placeExpand && placeExpand._id === place._id ? 'Hide' : 'Show'" class="m-l-5"></Button>
       </StackLayout>
-      <card-place *ngIf="placeExpand && placeExpand._id === place._id" [place]="place" class="m-b-20"></card-place>
+      <card-place *ngIf="placeExpand && placeExpand._id === place._id" [place]="place" class="m-b-20"
+                  (add)="onAdd($event)" (moreInfos)="onMoreInfos($event)">
+      </card-place>
     </StackLayout>
   </StackLayout>
 </ScrollView>

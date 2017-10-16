@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 
 @Component({
   moduleId: module.id,
@@ -7,8 +7,18 @@ import { Component, OnInit, Input } from "@angular/core";
 })
 export class CardPlaceComponent implements OnInit {
   @Input() place:any;
+  @Output() moreInfos = new EventEmitter();
+  @Output() add = new EventEmitter();
 
   public ngOnInit() {
     console.log('CardPlaceComponent init');
+  }
+
+  protected onMoreInfos() {
+    this.moreInfos.next(this.place);
+  }
+
+  protected onAdd() {
+    this.add.next(this.place);
   }
 }

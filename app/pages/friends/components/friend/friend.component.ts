@@ -33,4 +33,12 @@ export class FriendComponent implements OnInit {
     if (this.placeExpand !== place) this.placeExpand = place;
     else this.placeExpand = null;
   }
+
+  protected onAdd(place) {
+    console.log('onAdd', place.name);
+  }
+
+  protected onMoreInfos(place) {
+    console.log('onMoreInfos', place.name);
+  }
 }
