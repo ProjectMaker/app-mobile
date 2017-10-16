@@ -1,0 +1,15 @@
+<StackLayout class="page">
+  <SearchBar hint="Rechercher un ami" [text]="searchPhrase"
+             (loaded)="onSearchBarLoaded($event)" (textChange)="onTextChanged($event)" (submit)="onSubmit($event)"
+             color="white" textFieldBackgroundColor="red" textFieldHintColor="white"></SearchBar>
+  <ListView [items]="friends" class="list-group" height="100%" separatorColor="transparent" *ngIf="friendsFound">
+    <ng-template let-item="item">
+      <GridLayout class="list-group-item" columns="*,auto">
+        <Label [text]="item.pseudo" class="list-group-item-heading" col="0" row="0"></Label>
+        <Button text="Add" class="btn btn-primary" col="1"></Button>
+      </GridLayout>
+    </ng-template>
+  </ListView>
+  <Label text="Hum il semble que votre ami n'est pas l'application. Invitez le" class="m-t-10"
+         *ngIf="friendsNotFound"></Label>
+</StackLayout>

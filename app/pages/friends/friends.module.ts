@@ -5,14 +5,16 @@ import { routes, navigatableComponents } from "./friends.routing";
 
 import { FriendsComponent } from './components/friends/friends.component';
 import { FriendComponent } from './components/friend/friend.component';
+import { FriendAddComponent } from './components/friend-add/friend-add.component';
 import { CardPlaceComponent } from './components/friend/card-place.component';
 import { SharedModule } from '../../shared/shared.module';
 
 @NgModule({
-  entryComponents: [ FriendsComponent, FriendComponent ],
+  entryComponents: [ FriendsComponent, FriendComponent, FriendAddComponent ],
   declarations: [
     FriendsComponent,
     FriendComponent,
+    FriendAddComponent,
     CardPlaceComponent,
     ...navigatableComponents
   ],
