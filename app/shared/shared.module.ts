@@ -3,19 +3,22 @@ import { NativeScriptModule } from "nativescript-angular/nativescript.module";
 import { NativeScriptUISideDrawerModule } from "nativescript-pro-ui/sidedrawer/angular"
 
 import { LayoutComponent, ActionBarComponent, MenuComponent } from './components/layout';
+import { CardPlaceComponent } from './components/card/place/card-place.component';
 
 @NgModule({
   declarations: [
     LayoutComponent,
     ActionBarComponent,
-    MenuComponent
+    MenuComponent,
+    CardPlaceComponent
   ],
   imports: [
     NativeScriptModule,
     NativeScriptUISideDrawerModule
   ],
   exports: [
-    LayoutComponent
+    LayoutComponent,
+    CardPlaceComponent
   ],
   schemas: [NO_ERRORS_SCHEMA],
 })
