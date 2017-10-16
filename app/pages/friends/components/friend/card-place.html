@@ -1,0 +1,12 @@
+<GridLayout rows="150,*,*">
+  <Image src="~/images/friend.png" row="0" stretch="fill"></Image>
+  <StackLayout row="1">
+    <Label text="{{ place.address }}"></Label>
+    <Label text="{{ place.phone }}"></Label>
+    <Label text="{{ place.openHours }}"></Label>
+  </StackLayout>
+  <StackLayout orientation="horizontal" width="100%" row="2">
+    <Button class="btn btn-primary" text="Plus d'infos" (tap)="onMoreInfos()"></Button>
+    <Button class="btn btn-primary" text="Ajouter à mes favoris" (tap)="onAdd()"></Button>
+  </StackLayout>
+</GridLayout>
