@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { PlacesComponent } from './places/places.component'
+import { PlacesComponent } from './places.component'
 
 @Component({
   moduleId: module.id,

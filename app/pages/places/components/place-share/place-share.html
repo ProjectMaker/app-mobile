@@ -1,17 +1,19 @@
 <StackLayout class="page">
-  <GridLayout rows="auto,*">
-    <SearchBar hint="Rechercher un ami" [text]="searchPhrase" row="0"
+  <GridLayout rows="auto,auto,auto,*">
+    <Label text="Partage mes places" class="h1" row="0"></Label>
+    <Label [text]="place.name" row="1"></Label>
+    <SearchBar hint="Rechercher un ami" [text]="searchPhrase" row="2"
                (loaded)="onSearchBarLoaded($event)" (textChange)="onSearchBarChanged($event)"
                color="white" textFieldBackgroundColor="red" textFieldHintColor="white"></SearchBar>
-    <ListView [items]="friends" class="list-group" height="100%" separatorColor="transparent" *ngIf="friendsFound" row="1">
+    <ListView [items]="friends" class="list-group" height="100%" separatorColor="transparent" *ngIf="friendsFound" row="3">
       <ng-template let-item="item">
-        <GridLayout class="list-group-item" columns="*,auto">
+        <GridLayout class="list-group-item" columns="*, auto">
           <Label [text]="item.pseudo" class="list-group-item-heading" col="0" row="0"></Label>
-          <Button text="Add" class="btn btn-primary" col="1" (tap)="onAdd(item)"></Button>
+          <Button text="Share" class="btn btn-primary" col="1" (tap)="onShare(item)"></Button>
         </GridLayout>
       </ng-template>
     </ListView>
-    <StackLayout *ngIf="friendsNotFound" row="1">
+    <StackLayout *ngIf="friendsNotFound" row="3">
       <Label text="Hum il semble que votre ami n'est pas l'application. Invitez le" class="m-t-10"></Label>
       <Label text="Inviter un ami" class="h1"></Label>
       <Label text="Email"></Label>
