@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SnackBar, SnackBarOptions } from "nativescript-snackbar";
 
 @Component({
   moduleId: module.id,
@@ -9,7 +10,7 @@ export class FriendComponent implements OnInit {
   protected friend:any = {};
   protected places:Array<any> = [];
   protected placeExpand:any;
-
+  private snackbar:SnackBar = new SnackBar();
   public ngOnInit() {
     this.friend = {
       _id: 3,
@@ -35,7 +36,15 @@ export class FriendComponent implements OnInit {
   }
 
   protected onAdd(place) {
-    console.log('onAdd', place.name);
+    const options: SnackBarOptions = {
+      actionText: 'Close',
+      actionTextColor: '#ff4081', // Optional, Android only
+      snackText: 'Place added',
+      hideDelay: 1500,
+      //textColor: '#346db2', // Optional, Android only
+      //backgroundColor: '#eaeaea' // Optional, Android only
+    };
+    this.snackbar.action(options);
   }
 
   protected onMoreInfos(place) {
