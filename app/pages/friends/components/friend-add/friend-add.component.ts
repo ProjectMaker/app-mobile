@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { SearchBar } from "ui/search-bar";
+import { SnackBar, SnackBarOptions } from "nativescript-snackbar";
 
 @Component({
   moduleId: module.id,
@@ -19,6 +20,7 @@ export class FriendAddComponent {
 
   protected friends:Array<any> = [];
   private searchBar:SearchBar;
+  private snackbar:SnackBar = new SnackBar();
 
   protected onSearchBarLoaded(args) {
     this.searchBar = <SearchBar>args.object;
@@ -44,11 +46,27 @@ export class FriendAddComponent {
   }
 
   protected onAdd(friend) {
-    console.log('onAdd', friend);
+    const options: SnackBarOptions = {
+      actionText: 'Close',
+      actionTextColor: '#ff4081', // Optional, Android only
+      snackText: 'Friend added',
+      hideDelay: 1500,
+      //textColor: '#346db2', // Optional, Android only
+      //backgroundColor: '#eaeaea' // Optional, Android only
+    };
+    this.snackbar.action(options);
   }
 
   protected onSendEmail(email) {
-    console.log('onSendEmail', email);
+    const options: SnackBarOptions = {
+      actionText: 'Close',
+      actionTextColor: '#ff4081', // Optional, Android only
+      snackText: 'Invitation sent',
+      hideDelay: 1500,
+      //textColor: '#346db2', // Optional, Android only
+      //backgroundColor: '#eaeaea' // Optional, Android only
+    };
+    this.snackbar.action(options);
   }
 
   private search() {

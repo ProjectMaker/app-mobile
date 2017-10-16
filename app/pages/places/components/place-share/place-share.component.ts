@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { SearchBar } from "ui/search-bar";
+import { SnackBar, SnackBarOptions } from "nativescript-snackbar";
 
 @Component({
   moduleId: module.id,
@@ -20,7 +21,8 @@ export class PlaceShareComponent implements OnInit {
 
   protected friends:Array<any> = [];
   private searchBar:SearchBar;
-
+  private snackbar:SnackBar = new SnackBar();
+  
   public ngOnInit() {
     this.place = {
       _id: 1, name: 'Le bouillon belge'
@@ -51,11 +53,27 @@ export class PlaceShareComponent implements OnInit {
   }
 
   protected onShare(friend) {
-    console.log('onShare', friend);
+    const options: SnackBarOptions = {
+      actionText: 'Close',
+      actionTextColor: '#ff4081', // Optional, Android only
+      snackText: 'Place sent',
+      hideDelay: 1500,
+      //textColor: '#346db2', // Optional, Android only
+      //backgroundColor: '#eaeaea' // Optional, Android only
+    };
+    this.snackbar.action(options);
   }
 
   protected onSendEmail(email) {
-    console.log('onSendEmail', email);
+    const options: SnackBarOptions = {
+      actionText: 'Close',
+      actionTextColor: '#ff4081', // Optional, Android only
+      snackText: 'Email sent',
+      hideDelay: 1500,
+      //textColor: '#346db2', // Optional, Android only
+      //backgroundColor: '#eaeaea' // Optional, Android only
+    };
+    this.snackbar.action(options);
   }
 
   private search() {
