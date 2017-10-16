@@ -1,0 +1,10 @@
+<StackLayout class="page">
+  <StackLayout class="m-b-20">
+    <Label text="{{ friend.pseudo }}"></Label>
+    <Image src="{{ friend.img }}" stretch="none"></Image>
+  </StackLayout>
+  <Label text="Ses lieux favoris" class="m-b-20"></Label>
+  <StackLayout>
+    <Label *ngFor="let place of places" text="- {{ place.name }}"></Label>
+  </StackLayout>
+</StackLayout>

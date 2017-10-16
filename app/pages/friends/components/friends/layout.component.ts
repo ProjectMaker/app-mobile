@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { FriendsComponent } from './friends/friends.component'
+import { FriendsComponent } from './friends.component'
 
 @Component({
   moduleId: module.id,
