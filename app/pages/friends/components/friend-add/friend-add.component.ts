@@ -18,7 +18,6 @@ export class FriendAddComponent {
   }];
 
   protected friends:Array<any> = [];
-  private searchPhrase:string = '';
   private searchBar:SearchBar;
 
   protected onSearchBarLoaded(args) {
@@ -27,24 +26,19 @@ export class FriendAddComponent {
   }
 
   protected get friendsFound() {
-    if (this.searchBar && this.searchBar.text.length > 1 && this.friends.length) return true;
+    if (this.searchBar && this.searchBar.text && this.searchBar.text.length > 1 && this.friends.length) return true;
     else return false;
   }
 
   protected get friendsNotFound() {
-    if (this.searchBar && this.searchBar.text.length > 1 && !this.friends.length) return true;
+    if (this.searchBar && this.searchBar.text && this.searchBar.text.length > 1 && !this.friends.length) return true;
     else return false;
   }
 
-  public onSubmit(args) {
-    alert("You are searching for " + this.searchBar.text);
-  }
-
-  public onTextChanged(args) {
+  protected onSearchBarChanged() {
     if (!this.searchBar.text) return;
 
     if (this.searchBar.text.length > 1) {
-      this.searchPhrase = this.searchBar.text.toLocaleLowerCase();
       this.search();
     } else this.clearSearch();
   }
@@ -53,12 +47,15 @@ export class FriendAddComponent {
     console.log('onAdd', friend);
   }
 
+  protected onSendEmail(email) {
+    console.log('onSendEmail', email);
+  }
+
   private search() {
-    this.friends = this._friends.filter((friend) => friend.pseudo.toLocaleLowerCase().indexOf(this.searchPhrase) !== -1);
+    this.friends = this._friends.filter((friend) => friend.pseudo.toLocaleLowerCase().indexOf(this.searchBar.text.toLocaleLowerCase()) !== -1);
   }
 
   private clearSearch() {
-    //this.searchBar.text = '';
     this.friends = [];
   }
 }

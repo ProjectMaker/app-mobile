@@ -1,15 +1,22 @@
 <StackLayout class="page">
   <SearchBar hint="Rechercher un ami" [text]="searchPhrase"
-             (loaded)="onSearchBarLoaded($event)" (textChange)="onTextChanged($event)" (submit)="onSubmit($event)"
+             (loaded)="onSearchBarLoaded($event)" (textChange)="onSearchBarChanged($event)"
              color="white" textFieldBackgroundColor="red" textFieldHintColor="white"></SearchBar>
   <ListView [items]="friends" class="list-group" height="100%" separatorColor="transparent" *ngIf="friendsFound">
     <ng-template let-item="item">
       <GridLayout class="list-group-item" columns="*,auto">
         <Label [text]="item.pseudo" class="list-group-item-heading" col="0" row="0"></Label>
-        <Button text="Add" class="btn btn-primary" col="1"></Button>
+        <Button text="Add" class="btn btn-primary" col="1" (tap)="onAdd(item)"></Button>
       </GridLayout>
     </ng-template>
   </ListView>
-  <Label text="Hum il semble que votre ami n'est pas l'application. Invitez le" class="m-t-10"
-         *ngIf="friendsNotFound"></Label>
+  <StackLayout *ngIf="friendsNotFound">
+    <Label text="Hum il semble que votre ami n'est pas l'application. Invitez le" class="m-t-10"></Label>
+    <Label text="Inviter un ami" class="h1"></Label>
+    <Label text="Email"></Label>
+    <TextField hint="john@doe.com" keyboardType="email"
+               autocorrect="false" autocapitalizationType="none" #email></TextField>
+    <Button text="Inviter" width="100%" class="btn btn-primary" (tap)="onSendEmail(email.value)"></Button>
+  </StackLayout>
+
 </StackLayout>

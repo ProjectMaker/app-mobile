@@ -1,7 +1,7 @@
 import { LayoutComponent } from './components/layout.component';
 
 export const routes = [
-  { path: 'home', component: LayoutComponent }
+  { path: '', component: LayoutComponent }
 ];
 
 export const navigatableComponents = [

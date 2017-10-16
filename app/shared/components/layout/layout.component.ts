@@ -29,7 +29,7 @@ export class LayoutComponent implements AfterViewInit {
 
 
   public onSelectItem(item:string) {
-    //console.log('onSelectItem', item);
+    console.log('onSelectItem', item);
     this.routerExtensions.navigate([item], { clearHistory: true });
   }
 

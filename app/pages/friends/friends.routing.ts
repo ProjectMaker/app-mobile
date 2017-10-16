@@ -5,7 +5,7 @@ import { LayoutComponent as FriendAddLayoutComponent } from './components/friend
 export const routes = [
   { path: 'friends', component: FriendsLayoutComponent },
   { path: 'friend/:id', component: FriendLayoutComponent },
-  { path: '', component: FriendAddLayoutComponent }
+  { path: 'friend-add', component: FriendAddLayoutComponent }
 ];
 
 export const navigatableComponents = [
