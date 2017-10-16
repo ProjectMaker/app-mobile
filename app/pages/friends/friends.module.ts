@@ -5,6 +5,7 @@ import { routes, navigatableComponents } from "./friends.routing";
 
 import { FriendsComponent } from './components/friends/friends.component';
 import { FriendComponent } from './components/friend/friend.component';
+import { CardPlaceComponent } from './components/friend/card-place.component';
 import { SharedModule } from '../../shared/shared.module';
 
 @NgModule({
@@ -12,6 +13,7 @@ import { SharedModule } from '../../shared/shared.module';
   declarations: [
     FriendsComponent,
     FriendComponent,
+    CardPlaceComponent,
     ...navigatableComponents
   ],
   imports: [
