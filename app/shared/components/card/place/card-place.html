@@ -6,7 +6,8 @@
     <Label text="{{ place.openHours }}"></Label>
   </StackLayout>
   <StackLayout orientation="horizontal" width="100%" row="2">
-    <Button class="btn btn-primary" text="Plus d'infos" (tap)="onMoreInfos()"></Button>
-    <Button class="btn btn-primary" text="Ajouter à mes favoris" (tap)="onAdd()"></Button>
+    <Button class="btn btn-primary" text="Plus d'infos" (tap)="onMoreInfos()" *ngIf="showMoreInfos"></Button>
+    <Button class="btn btn-primary" text="Ajouter à mes favoris" (tap)="onAdd()" *ngIf="showAdd"></Button>
+    <Button class="btn btn-primary" text="Supprimer de mes favoris" (tap)="onRemove()" *ngIf="showRemove"></Button>
   </StackLayout>
 </GridLayout>
