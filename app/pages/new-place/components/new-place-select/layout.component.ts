@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { NewPlaceComponent } from './new-place.component';
+import { NewPlaceSelectComponent } from './new-place-select.component';
 
 @Component({
   moduleId: module.id,
@@ -8,5 +8,5 @@ import { NewPlaceComponent } from './new-place.component';
   template: '<app-layout [ComponentClass]="ComponentClass"></app-layout>'
 })
 export class LayoutComponent {
-  public ComponentClass:Component = NewPlaceComponent;
+  public ComponentClass:Component = NewPlaceSelectComponent;
 }
