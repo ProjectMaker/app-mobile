@@ -6,11 +6,11 @@ import { Color } from 'color';
 
 @Component({
   moduleId: module.id,
-  selector: 'app-new-place',
-  templateUrl: 'new-place.html',
-  styleUrls: ['./new-place.common.css']
+  selector: 'app-new-place-select',
+  templateUrl: 'new-place-select.html',
+  styleUrls: ['./new-place-select.common.css']
 })
-export class NewPlaceComponent implements OnInit {
+export class NewPlaceSelectComponent implements OnInit {
   protected places:Array<any> = [];
   private list:ListView;
   protected itemSelected:any;
