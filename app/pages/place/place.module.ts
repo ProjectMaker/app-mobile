@@ -2,16 +2,16 @@ import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
 import { NativeScriptRouterModule } from "nativescript-angular/router";
 import { NativeScriptModule } from "nativescript-angular/nativescript.module";
 
-import { routes, navigatableComponents } from "./places.routing";
+import { routes, navigatableComponents } from "./place.routing";
 
-import { PlacesComponent } from './components/places/places.component';
-import { PlaceShareComponent } from './components/place-share/place-share.component';
+import { PlaceListComponent } from './components/list/list.component';
+import { PlaceShareComponent } from './components/share/share.component';
 import { SharedModule } from '../../shared/shared.module';
 
 @NgModule({
-  entryComponents: [ PlacesComponent, PlaceShareComponent ],
+  entryComponents: [ PlaceListComponent, PlaceShareComponent ],
   declarations: [
-    PlacesComponent,
+    PlaceListComponent,
     PlaceShareComponent,
     ...navigatableComponents
   ],
@@ -27,4 +27,4 @@ import { SharedModule } from '../../shared/shared.module';
   ],
   schemas: [NO_ERRORS_SCHEMA],
 })
-export class PlacesModule {}
+export class PlaceModule {}

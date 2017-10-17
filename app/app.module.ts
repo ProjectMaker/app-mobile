@@ -7,7 +7,7 @@ import { AppComponent } from "./app.component";
 import { HomeModule } from './pages/home/home.module';
 import { NewPlaceModule } from './pages/new-place/new-place.module';
 import { FriendsModule } from './pages/friends/friends.module';
-import { PlacesModule } from './pages/places/places.module';
+import { PlaceModule } from './pages/place/place.module';
 import { SharesModule } from './pages/shares/shares.module';
 import { ProfileModule } from './pages/profile/profile.module';
 
@@ -26,7 +26,7 @@ import { CoreModule } from './core/core.module';
     HomeModule,
     NewPlaceModule,
     FriendsModule,
-    PlacesModule,
+    PlaceModule,
     SharesModule,
     ProfileModule
   ],
