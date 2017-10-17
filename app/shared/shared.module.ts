@@ -4,13 +4,15 @@ import { NativeScriptUISideDrawerModule } from "nativescript-pro-ui/sidedrawer/a
 
 import { LayoutComponent, ActionBarComponent, MenuComponent } from './components/layout';
 import { CardPlaceComponent } from './components/card/place/card-place.component';
+import { PIPES } from './pipes';
 
 @NgModule({
   declarations: [
     LayoutComponent,
     ActionBarComponent,
     MenuComponent,
-    CardPlaceComponent
+    CardPlaceComponent,
+    ...PIPES
   ],
   imports: [
     NativeScriptModule,
@@ -18,7 +20,8 @@ import { CardPlaceComponent } from './components/card/place/card-place.component
   ],
   exports: [
     LayoutComponent,
-    CardPlaceComponent
+    CardPlaceComponent,
+    ...PIPES
   ],
   schemas: [NO_ERRORS_SCHEMA],
 })
