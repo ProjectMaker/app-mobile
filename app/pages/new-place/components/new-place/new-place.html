@@ -1,3 +1,17 @@
-<StackLayout>
-  <Label text="New place"></Label>
-</StackLayout>
+
+<GridLayout rows="auto,auto,*,auto" class="page">
+  <Label text="Ajouter une place" class="h1" row="0"></Label>
+  <Image src="~/images/friend.png" row="1" stretch="fill" height="200"></Image>
+  <StackLayout row="2">
+    <ListView height="100%" separatorColor="transparent" [items]="places"
+              (itemTap)="onItemSelected($event)" (loaded)="onListLoaded($event)">
+      <ng-template let-item="item" let-i="index">
+        <StackLayout class="m-b-5 p-2" id="{{ 'item-' + i}}">
+          <Label [text]="item.name"></Label>
+          <Label [text]="item.address" *ngIf="!item.footer"></Label>
+        </StackLayout>
+      </ng-template>
+    </ListView>
+  </StackLayout>
+  <Button width="100%" text="Suivant" class="btn btn-primary" [class.disabled]="!itemSelected" row="3"></Button>
+</GridLayout>

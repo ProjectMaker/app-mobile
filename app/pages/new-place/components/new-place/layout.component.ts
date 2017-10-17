@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { NewPlaceComponent } from './new-place/new-place.component';
+import { NewPlaceComponent } from './new-place.component';
 
 @Component({
   moduleId: module.id,

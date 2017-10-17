@@ -2,7 +2,7 @@ import { LayoutComponent as PlacesLayoutComponent} from './components/places/lay
 import { LayoutComponent as PlaceShareLayoutComponent } from './components/place-share/layout.component';
 export const routes = [
   { path: 'places', component: PlacesLayoutComponent },
-  { path: '', component: PlaceShareLayoutComponent }
+  { path: 'place-share', component: PlaceShareLayoutComponent }
 ];
 
 export const navigatableComponents = [
