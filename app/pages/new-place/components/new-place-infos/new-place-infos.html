@@ -1,0 +1,22 @@
+
+  <GridLayout class="page" rows="auto,*,auto">
+    <Label [text]="place.name" class="place-name" row="0"></Label>
+    <StackLayout row="1" [formGroup]="form">
+      <StackLayout orientation="horizontal" row="1" class="place-star-container">
+        <Label *ngFor="let star of [1,2,3,4,5]"
+               text="{{ iconStar }}"
+               class="fa fa-2 place-star"
+               [class.place-star-selected]="place.note >= star"
+               (tap)="onChangeStar(star)"></Label>
+      </StackLayout>
+      <StackLayout row="2" class="place-context-container">
+        <CheckBox *ngFor="let context of contextValues"
+                  [text]="context.label" [checked]="place.contexts | placeContextChecked:context"
+                  (checkedChange)="onChangeContext($event, context)"></CheckBox>
+      </StackLayout>
+      <StackLayout row="3" class="place-comments-container">
+        <TextView hint="Laisser un commentaire" formControlName="comment" [text]="place.comment" returnKeyType="done"></TextView>
+      </StackLayout>
+    </StackLayout>
+    <Button row="3" text="Suivant" (tap)="onSubmit()" [isEnabled]="true" class="btn btn-primary" [class.disabled]="form.invalid"></Button>
+  </GridLayout>

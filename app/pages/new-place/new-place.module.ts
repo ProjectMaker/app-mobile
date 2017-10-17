@@ -5,12 +5,14 @@ import { NativeScriptModule } from "nativescript-angular/nativescript.module";
 import { routes, navigatableComponents } from "./new-place.routing";
 
 import { NewPlaceComponent } from './components/new-place/new-place.component';
+import { NewPlaceInfosComponent } from './components/new-place-infos/new-place-infos.component';
 import { SharedModule } from '../../shared/shared.module';
 
 @NgModule({
-  entryComponents: [ NewPlaceComponent ],
+  entryComponents: [ NewPlaceComponent, NewPlaceInfosComponent ],
   declarations: [
     NewPlaceComponent,
+    NewPlaceInfosComponent,
     ...navigatableComponents
   ],
   imports: [
