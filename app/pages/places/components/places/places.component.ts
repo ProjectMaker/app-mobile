@@ -26,7 +26,7 @@ export class PlacesComponent implements OnInit {
     if (this.placeExpand !== place) this.placeExpand = place;
     else this.placeExpand = null;
   }
-
+  
   protected onRemove(place) {
     console.log('onRemove', place.name);
   }
