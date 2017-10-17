@@ -28,3 +28,26 @@ components that have the btn class name.
     margin: 10 5 10 5;
 }
 
+.fa {
+    font-family: 'FontAwesome', 'fontawesome-webfont';
+}
+
+.fa-0 {
+    font-size: 14;
+}
+.fa-1 {
+    font-size: 24;
+}
+
+.fa-2 {
+    font-size: 32;
+}
+
+.place-star {
+    margin-right: 10;
+}
+
+.place-star-selected {
+    color: #b58900;
+}
+

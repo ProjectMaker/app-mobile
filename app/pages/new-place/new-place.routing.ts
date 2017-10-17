@@ -2,8 +2,8 @@ import { LayoutComponent as NewPlaceLayoutComponent} from './components/new-plac
 import { LayoutComponent as NewPlaceInfosLayoutComponent} from './components/new-place-infos/layout.component';
 
 export const routes = [
-  { path: '', component: NewPlaceLayoutComponent },
-  { path: 'new-place/infos', component: NewPlaceInfosLayoutComponent },
+  { path: 'new-place/select', component: NewPlaceLayoutComponent },
+  { path: '', component: NewPlaceInfosLayoutComponent },
 ];
 
 export const navigatableComponents = [
