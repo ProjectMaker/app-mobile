@@ -20,6 +20,10 @@ components that have the btn class name.
     font-size: 18;
 }
 
+.btn.disabled {
+    opacity: .5;
+}
+
 .page {
     margin: 10 5 10 5;
 }
