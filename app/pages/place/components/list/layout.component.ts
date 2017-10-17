@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { PlaceShareComponent } from './place-share.component'
+import { PlaceListComponent } from './list.component'
 
 @Component({
   moduleId: module.id,
@@ -8,5 +8,5 @@ import { PlaceShareComponent } from './place-share.component'
   template: '<app-layout [ComponentClass]="ComponentClass"></app-layout>'
 })
 export class LayoutComponent {
-  public ComponentClass:Component = PlaceShareComponent;
+  public ComponentClass:Component = PlaceListComponent;
 }

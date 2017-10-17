@@ -5,7 +5,7 @@ import { SnackBar, SnackBarOptions } from "nativescript-snackbar";
 @Component({
   moduleId: module.id,
   selector: 'app-place-share',
-  templateUrl: './place-share.html'
+  templateUrl: './share.html'
 })
 export class PlaceShareComponent implements OnInit {
   protected place:any;

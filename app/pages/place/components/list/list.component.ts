@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   moduleId: module.id,
-  selector: 'app-places',
-  templateUrl: './places.html'
+  selector: 'app-place-list',
+  templateUrl: './list.html'
 })
-export class PlacesComponent implements OnInit {
+export class PlaceListComponent implements OnInit {
   protected places:Array<any> = [];
   protected placeExpand:any;
 
