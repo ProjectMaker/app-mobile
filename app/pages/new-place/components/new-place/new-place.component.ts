@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { RouterExtensions } from 'nativescript-angular/router';
 import { View } from 'ui/core/view';
 import { ListView } from 'ui/list-view';
-const colorModule = require("color");
+import { Color } from 'color';
 
 @Component({
   moduleId: module.id,
@@ -13,6 +14,8 @@ export class NewPlaceComponent implements OnInit {
   protected places:Array<any> = [];
   private list:ListView;
   protected itemSelected:any;
+
+  public constructor(private routerExtensions:RouterExtensions) { }
 
   public ngOnInit() {
     this.places = [{
@@ -38,11 +41,15 @@ export class NewPlaceComponent implements OnInit {
     if (this.itemSelected) {
       const index = this.places.findIndex(place => place === this.itemSelected);
       const itemView = <View>this.list.getViewById(`item-${index}`);
-      itemView.backgroundColor = new colorModule.Color("#FFFFFF");
-      itemView.color = new colorModule.Color("#000000");
+      itemView.backgroundColor = new Color("#FFFFFF");
+      itemView.color = new Color("#000000");
     }
-    args.view.backgroundColor = new colorModule.Color("#000000");
-    args.view.color = new colorModule.Color("#FFFFFF");
+    args.view.backgroundColor = new Color("#000000");
+    args.view.color = new Color("#FFFFFF");
     this.itemSelected = this.places[args.index];
+  }
+
+  protected onPlaceSelected() {
+    if (this.itemSelected) this.routerExtensions.navigate(['new-place/infos']);
   }
 };

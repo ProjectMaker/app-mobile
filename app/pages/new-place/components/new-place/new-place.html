@@ -13,5 +13,5 @@
       </ng-template>
     </ListView>
   </StackLayout>
-  <Button width="100%" text="Suivant" class="btn btn-primary" [class.disabled]="!itemSelected" row="3"></Button>
+  <Button width="100%" text="Suivant" class="btn btn-primary" [class.disabled]="!itemSelected" row="3" (tap)="onPlaceSelected()"></Button>
 </GridLayout>
