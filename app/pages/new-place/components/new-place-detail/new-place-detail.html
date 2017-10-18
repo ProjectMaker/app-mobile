@@ -1,0 +1,8 @@
+<ScrollView>
+  <StackLayout class="page">
+    <Label [text]="place.name" class="h2"></Label>
+    <card-place [place]="place" class="m-b-20"></card-place>
+    <Label text="Fil d'actualités" class="h2"></Label>
+    <news-feed [place]="newsFeed"></news-feed>
+  </StackLayout>
+</ScrollView>

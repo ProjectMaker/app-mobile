@@ -6,13 +6,15 @@ import { routes, navigatableComponents } from "./new-place.routing";
 
 import { NewPlaceSelectComponent } from './components/new-place-select/new-place-select.component';
 import { NewPlaceInfosComponent } from './components/new-place-infos/new-place-infos.component';
+import { NewPlaceDetailComponent } from './components/new-place-detail/new-place-detail.component';
 import { SharedModule } from '../../shared/shared.module';
 
 @NgModule({
-  entryComponents: [ NewPlaceSelectComponent, NewPlaceInfosComponent ],
+  entryComponents: [ NewPlaceSelectComponent, NewPlaceInfosComponent, NewPlaceDetailComponent ],
   declarations: [
     NewPlaceSelectComponent,
     NewPlaceInfosComponent,
+    NewPlaceDetailComponent,
     ...navigatableComponents
   ],
   imports: [
