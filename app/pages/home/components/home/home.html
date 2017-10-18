@@ -1,3 +1,24 @@
-<StackLayout>
-  <Label text="Welcome Home!"></Label>
-</StackLayout>
+<ScrollView>
+  <StackLayout class="page">
+    <Label text="Fil d'actualités" class="h1"></Label>
+    <StackLayout *ngFor="let place of places">
+      <Label class="h3" [text]="place.name"></Label>
+      <StackLayout *ngFor="let user of place.users">
+        <Label [text]="user.pseudo" class="h4"></Label>
+        <StackLayout *ngFor="let content of user.contents">
+          <StackLayout *ngIf="content.type === 'comment'">
+            <Label [text]="content.name"></Label>
+          </StackLayout>
+          <StackLayout *ngIf="content.type === 'photo'">
+            <FlexboxLayout flexWrap="wrap" justifyContent="space-between">
+              <StackLayout *ngFor="let image of content.images" [flexGrow]="image === content.images[0] ? 1 : 0"  class="m-b-5">
+                <Image src="{{ image }}" stretch="none"></Image>
+              </StackLayout>
+            </FlexboxLayout>
+          </StackLayout>
+        </StackLayout>
+      </StackLayout>
+    </StackLayout>
+
+  </StackLayout>
+</ScrollView>

@@ -1,9 +1,9 @@
-import { LayoutComponent } from './components/layout.component';
+import { LayoutComponent as LayoutHomeComponent } from './components/home/layout.component';
 
 export const routes = [
-  { path: '', component: LayoutComponent }
+  { path: '', component: LayoutHomeComponent }
 ];
 
 export const navigatableComponents = [
-  LayoutComponent
+  LayoutHomeComponent
 ];
