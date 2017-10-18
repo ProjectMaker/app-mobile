@@ -1,0 +1,7 @@
+<GridLayout columns="*,*" class="bottom-bar">
+  <Button *ngFor="let item of items; let i=index" col="{{ i }}"
+          [class.bottom-bar__btn__first]="i === 0"
+          [class.bottom-bar__btn__between]="i > 0 && i < (items.length - 1)"
+          [class.bottom-bar__btn__last]="i === (items.length - 1)"
+          color="#FFFFFF" text="{{ item.label }}" (tap)="onItemTap(item)"></Button>
+</GridLayout>

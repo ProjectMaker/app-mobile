@@ -1,0 +1,20 @@
+.bottom-bar {
+    background-color: #000000;
+}
+
+.bottom-bar__btn__first {
+    border-right-color: #FFFFFF;
+    border-right-width: 1;
+}
+
+.bottom-bar__btn__last {
+    border-left-color: #FFFFFF;
+    border-left-width: 1;
+}
+
+.bottom-bar__btn__between {
+    border-right-color: #FFFFFF;
+    border-right-width: 1;
+    border-left-color: #FFFFFF;
+    border-left-width: 1;
+}
