@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SnackBar, SnackBarOptions } from "nativescript-snackbar";
+import { RouterExtensions } from 'nativescript-angular/router';
 
 @Component({
   moduleId: module.id,
@@ -11,6 +12,9 @@ export class FriendComponent implements OnInit {
   protected places:Array<any> = [];
   protected placeExpand:any;
   private snackbar:SnackBar = new SnackBar();
+
+  public constructor(private routerExtensions:RouterExtensions) { }
+
   public ngOnInit() {
     this.friend = {
       _id: 3,
@@ -48,6 +52,6 @@ export class FriendComponent implements OnInit {
   }
 
   protected onMoreInfos(place) {
-    console.log('onMoreInfos', place.name);
+    this.routerExtensions.navigate(['place/detail/infos']);
   }
 }

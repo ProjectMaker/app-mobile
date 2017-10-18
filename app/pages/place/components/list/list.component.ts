@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RouterExtensions } from 'nativescript-angular/router';
 
 @Component({
   moduleId: module.id,
@@ -9,6 +10,7 @@ export class PlaceListComponent implements OnInit {
   protected places:Array<any> = [];
   protected placeExpand:any;
 
+  public constructor(private routerExtensions:RouterExtensions) { }
   public ngOnInit() {
     this.places = [{
       _id: 1, name: 'Le bouillon belge',
@@ -32,6 +34,6 @@ export class PlaceListComponent implements OnInit {
   }
 
   protected onMoreInfos(place) {
-    console.log('onMoreInfos', place.name);
+    this.routerExtensions.navigate(['place/detail/infos']);
   }
 }
