@@ -7,6 +7,8 @@ import { TNSCheckBoxModule } from 'nativescript-checkbox/angular';
 
 import { LayoutComponent, ActionBarComponent, MenuComponent } from './components/layout';
 import { CardPlaceComponent } from './components/card/place/card-place.component';
+import { NewsFeedComponent } from './components/news-feed/news-feed.component';
+
 import { PIPES } from './pipes';
 
 @NgModule({
@@ -15,6 +17,7 @@ import { PIPES } from './pipes';
     ActionBarComponent,
     MenuComponent,
     CardPlaceComponent,
+    NewsFeedComponent,
     ...PIPES
   ],
   imports: [
@@ -27,6 +30,7 @@ import { PIPES } from './pipes';
   exports: [
     LayoutComponent,
     CardPlaceComponent,
+    NewsFeedComponent,
     NativeScriptFormsModule,
     ReactiveFormsModule,
     TNSCheckBoxModule,
