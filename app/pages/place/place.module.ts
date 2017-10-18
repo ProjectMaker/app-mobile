@@ -6,13 +6,16 @@ import { routes, navigatableComponents } from "./place.routing";
 
 import { PlaceListComponent } from './components/list/list.component';
 import { PlaceShareComponent } from './components/share/share.component';
+import { PlaceDetailComponent } from './components/detail/detail.component';
+
 import { SharedModule } from '../../shared/shared.module';
 
 @NgModule({
-  entryComponents: [ PlaceListComponent, PlaceShareComponent ],
+  entryComponents: [ PlaceListComponent, PlaceShareComponent, PlaceDetailComponent ],
   declarations: [
     PlaceListComponent,
     PlaceShareComponent,
+    PlaceDetailComponent,
     ...navigatableComponents
   ],
   imports: [

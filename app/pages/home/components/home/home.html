@@ -1,7 +1,7 @@
 <ScrollView>
   <StackLayout class="page">
     <Label text="Fil d'actualités" class="h1"></Label>
-    <StackLayout *ngFor="let place of places" [nsRouterLink]="['new-place/detail']">
+    <StackLayout *ngFor="let place of places" [nsRouterLink]="['place/detail/infos']">
       <news-feed [place]="place"></news-feed>
     </StackLayout>
   </StackLayout>

@@ -1,0 +1,8 @@
+<GridLayout rows="*,auto">
+  <StackLayout row="0">
+    <router-outlet></router-outlet>
+  </StackLayout>
+  <StackLayout row="1">
+    <bottom-bar [items]="bottomBarItems" (itemTap)="onBottomBarItemTap($event)"></bottom-bar>
+  </StackLayout>
+</GridLayout>
