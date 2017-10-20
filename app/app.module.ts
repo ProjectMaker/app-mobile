@@ -12,6 +12,8 @@ import { SharesModule } from './pages/shares/shares.module';
 import { ProfileModule } from './pages/profile/profile.module';
 
 import { CoreModule } from './core/core.module';
+import { TNSFontIconModule, TNSFontIconService } from 'nativescript-ngx-fonticon';
+TNSFontIconService.debug = true;
 
 @NgModule({
   declarations: [
@@ -22,6 +24,9 @@ import { CoreModule } from './core/core.module';
     NativeScriptModule,
     NativeScriptRouterModule,
     NativeScriptUISideDrawerModule,
+    TNSFontIconModule.forRoot({
+      'fa': './assets/font-awesome.css',
+    }),
     CoreModule,
     HomeModule,
     NewPlaceModule,
@@ -30,7 +35,9 @@ import { CoreModule } from './core/core.module';
     SharesModule,
     ProfileModule
   ],
-  providers: [],
+  providers: [
+
+  ],
   schemas: [NO_ERRORS_SCHEMA],
 })
 export class AppModule {}

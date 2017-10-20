@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter } from "@angular/core";
+import { TNSFontIconService } from 'nativescript-ngx-fonticon';
 
 @Component({
   moduleId: module.id,
@@ -15,6 +16,7 @@ export class CardPlaceComponent {
   @Output() add = new EventEmitter();
   @Output() remove = new EventEmitter();
 
+  public constructor(private fonticon:TNSFontIconService) { }
   protected onMoreInfos() {
     this.moreInfos.next(this.place);
   }

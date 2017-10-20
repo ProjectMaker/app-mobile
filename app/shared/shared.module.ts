@@ -9,6 +9,7 @@ import { LayoutComponent, ActionBarComponent, MenuComponent } from './components
 import { CardPlaceComponent } from './components/card/place/card-place.component';
 import { NewsFeedComponent } from './components/news-feed/news-feed.component';
 import { BottomBarComponent } from './components/bottom-bar/bottom-bar.component';
+import { TNSFontIconModule, TNSFontIconService } from 'nativescript-ngx-fonticon';
 
 import { PIPES } from './pipes';
 
@@ -25,6 +26,7 @@ import { PIPES } from './pipes';
   imports: [
     NativeScriptModule,
     NativeScriptUISideDrawerModule,
+    TNSFontIconModule,
     NativeScriptFormsModule,
     ReactiveFormsModule,
     TNSCheckBoxModule,
@@ -37,6 +39,7 @@ import { PIPES } from './pipes';
     NativeScriptFormsModule,
     ReactiveFormsModule,
     TNSCheckBoxModule,
+    TNSFontIconModule,
     ...PIPES
   ],
   schemas: [NO_ERRORS_SCHEMA],

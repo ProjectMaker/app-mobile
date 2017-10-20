@@ -1,9 +1,19 @@
 <GridLayout rows="150,auto,auto">
   <Image src="~/images/friend.png" row="0" stretch="fill"></Image>
   <StackLayout row="1">
-    <Label text="{{ place.address }}"></Label>
-    <Label text="{{ place.phone }}"></Label>
-    <Label text="{{ place.openHours }}"></Label>
+    <StackLayout orientation="horizontal">
+      <Label [text]="'fa-map-marker' | fonticon" class="fa"></Label>
+      <Label text="{{ place.address }}"></Label>
+    </StackLayout>
+    <StackLayout orientation="horizontal">
+      <Label [text]="'fa-phone' | fonticon" class="fa"></Label>
+      <Label text="{{ place.phone }}"></Label>
+    </StackLayout>
+    <StackLayout orientation="horizontal">
+      <Label [text]="'fa-clock-o' | fonticon" class="fa"></Label>
+      <Label text="{{ place.openHours }}"></Label>
+    </StackLayout>
+
   </StackLayout>
   <StackLayout orientation="horizontal" width="100%" row="2">
     <Button class="btn btn-primary" text="Plus d'infos" (tap)="onMoreInfos()" *ngIf="showMoreInfos"></Button>
