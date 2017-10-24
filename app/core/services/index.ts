@@ -1,7 +1,7 @@
-import { TransactionService } from './transaction/transaction.service';
+import { DataService } from './data/data.service';
 
-export * from './transaction/transaction.service';
+export * from './data/data.service';
 
 export const APP_SERVICES = [
-  TransactionService
+  DataService
 ];
