@@ -2,6 +2,10 @@
     background-color: #000000;
 }
 
+.bottom-bar__btn {
+    padding: 6;
+}
+
 .bottom-bar__btn__first {
     border-right-color: #FFFFFF;
     border-right-width: 1;
