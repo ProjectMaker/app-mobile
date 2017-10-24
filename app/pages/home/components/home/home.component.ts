@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { NewsFeedService } from '../../../../core/services'
 @Component({
   moduleId: module.id,
   selector: 'app-home',
@@ -8,38 +8,13 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
   protected news:Array<any> = [];
   protected places:Array<any> = [];
+
+  public constructor(private newsFeedService:NewsFeedService) { }
+
   public ngOnInit() {
     this.news = [];
 
-    this.places = [{
-      name: 'Le bouillon belge',
-      users: [{
-        pseudo: 'Snoop dog',
-        contents: [{
-          type: 'photo',
-          name: 'Yeah photos',
-          images: ['~/images/friend.png','~/images/friend.png','~/images/friend.png']
-        }, {
-          type: 'comment',
-          name: 'It\'s amazing'
-        }]
-      }],
-
-    },{
-      name: 'Paris Hanoi',
-      users: [{
-        pseudo: 'Busta Rhymes',
-        contents: [{
-          type: 'comment',
-          name: 'It\'s amazing'
-        },{
-          type: 'photo',
-          name: 'Yeah photos',
-          images: ['~/images/friend.png']
-        }]
-      }],
-
-    }]
+    this.places = this.newsFeedService.getWall();
   }
 
   protected templateSelector(item: any, index: number, items: any) {

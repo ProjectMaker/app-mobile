@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { SearchBar } from "ui/search-bar";
 import { SnackBar, SnackBarOptions } from "nativescript-snackbar";
+import { FriendService } from '../../../../core/services';
 
 @Component({
   moduleId: module.id,
@@ -22,6 +23,7 @@ export class PlaceShareComponent implements OnInit {
   protected friends:Array<any> = [];
   private searchBar:SearchBar;
   private snackbar:SnackBar = new SnackBar();
+  public constructor(private friendService:FriendService) { }
   
   public ngOnInit() {
     this.place = {
@@ -77,7 +79,7 @@ export class PlaceShareComponent implements OnInit {
   }
 
   private search() {
-    this.friends = this._friends.filter((friend) => friend.pseudo.toLocaleLowerCase().indexOf(this.searchBar.text.toLocaleLowerCase()) !== -1);
+    this.friends = this.friendService.searchFriends(this.searchBar.text);
   }
 
   private clearSearch() {

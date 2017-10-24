@@ -1,7 +1,13 @@
-import { TransactionService } from './transaction/transaction.service';
+import { PlaceService } from './place/place.service';
+import { NewsFeedService } from './news-feed/news-feed.service';
+import { FriendService } from './friend/friend.service';
 
-export * from './transaction/transaction.service';
+export * from './place/place.service';
+export * from './news-feed/news-feed.service';
+export * from './friend/friend.service';
 
 export const APP_SERVICES = [
-  TransactionService
+  PlaceService,
+  NewsFeedService,
+  FriendService
 ];

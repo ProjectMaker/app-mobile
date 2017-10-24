@@ -8,7 +8,7 @@
       <ng-template let-item="item" let-i="index">
         <StackLayout class="m-b-5 p-2" id="{{ 'item-' + i}}">
           <Label [text]="item.name"></Label>
-          <Label [text]="item.address" *ngIf="!item.footer"></Label>
+          <Label [text]="item.address.streetNumber + ' ' + item.address.route" *ngIf="!item.footer"></Label>
         </StackLayout>
       </ng-template>
     </ListView>

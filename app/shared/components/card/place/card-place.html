@@ -3,7 +3,7 @@
   <StackLayout row="1">
     <StackLayout orientation="horizontal">
       <Label [text]="'fa-map-marker' | fonticon" class="fa"></Label>
-      <Label text="{{ place.address }}"></Label>
+      <Label text="{{ place.address.streetNumber + ' ' + place.address.route }}"></Label>
     </StackLayout>
     <StackLayout orientation="horizontal">
       <Label [text]="'fa-phone' | fonticon" class="fa"></Label>
