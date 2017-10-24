@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { PlaceService } from '../../../../core/services';
 
 const CONTEXT_VALUES = [
   { value: 'family', label: 'En famille'},
@@ -22,13 +23,10 @@ export class NewPlaceInfosComponent implements OnInit {
   public contextValues:Array<any> = CONTEXT_VALUES;
   public iconStar:string = String.fromCharCode(0xf005);
 
-  constructor(private fb:FormBuilder) { }
+  constructor(private placeService:PlaceService, private fb:FormBuilder) { }
   public ngOnInit() {
-    this.place = {
-      name: 'Le bouillon belge ',
-      formattedAddress: '46 rue des Haies, 75020 PARIS',
-      contexts: []
-    };
+    this.place = this.placeService.getPlace();
+
     this.initForm();
   }
 

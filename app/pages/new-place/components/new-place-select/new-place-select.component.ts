@@ -3,6 +3,7 @@ import { RouterExtensions } from 'nativescript-angular/router';
 import { View } from 'ui/core/view';
 import { ListView } from 'ui/list-view';
 import { Color } from 'color';
+import { PlaceService } from '../../../../core/services';
 
 @Component({
   moduleId: module.id,
@@ -15,22 +16,14 @@ export class NewPlaceSelectComponent implements OnInit {
   private list:ListView;
   protected itemSelected:any;
 
-  public constructor(private routerExtensions:RouterExtensions) { }
+  public constructor(private placeService:PlaceService, private routerExtensions:RouterExtensions) { }
 
   public ngOnInit() {
-    this.places = [{
-      _id: 1, name: 'Le bouillon belge',
-      address: '46 rue des Haies', phone: '+33665433455', openHours: '11:30 - 19:00', contexts: ['friend','couple']
-    },{
-      _id: 2, name: 'Paris Hanoi',
-      address: '24 rue d\'Avron', phone: '+33665433455', openHours: '11:30 - 19:00', contexts: ['friend','couple']
-    },{
-      _id: 3, name: 'Train bleu',
-      address: '12 rue de Charonne', phone: '+33665433455', openHours: '11:30 - 19:00', contexts: ['friend','couple']
-    }, {
-      name: 'Le lieu n\' est pas dans la liste',
-      footer: true
-    }]
+    this.places = this.placeService.getPlaces();
+    this.places.push({
+        name: 'Le lieu n\' est pas dans la liste',
+        footer: true
+      });
   }
 
   protected onListLoaded(args) {
