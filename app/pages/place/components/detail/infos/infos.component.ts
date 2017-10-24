@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { DataService } from '../../../../../core/services'
+import { PlaceService } from '../../../../../core/services'
 
 @Component({
   moduleId: module.id,
@@ -9,9 +9,9 @@ import { DataService } from '../../../../../core/services'
 export class PlaceDetailInfosComponent implements OnInit {
   protected place:any;
 
-  public constructor(private dataService:DataService) { }
+  public constructor(private placeService:PlaceService) { }
 
   public ngOnInit() {
-    this.place = this.dataService.getPlace();
+    this.place = this.placeService.getPlace();
   }
 }
