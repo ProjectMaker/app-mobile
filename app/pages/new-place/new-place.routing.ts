@@ -3,7 +3,7 @@ import { LayoutComponent as NewPlaceInfosLayoutComponent} from './components/new
 
 export const routes = [
   { path: 'new-place/select', component: NewPlaceSelectLayoutComponent },
-  { path: 'new-place/infos', component: NewPlaceInfosLayoutComponent }
+  { path: 'new-place/:id/infos', component: NewPlaceInfosLayoutComponent }
 ];
 
 export const navigatableComponents = [

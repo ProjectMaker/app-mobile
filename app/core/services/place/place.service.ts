@@ -7,7 +7,7 @@ export class PlaceService {
   private favorites:Array<any> = [];
 
   public searchPlaces(position:any):Array<any> {
-    const places = require('./search-places.mock.json');
+    const places = require('./search-places.near.mock.json');
 
     return places;
   }
