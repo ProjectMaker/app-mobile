@@ -24,6 +24,7 @@ export class NewsFeedService {
 
   public getWall():Array<any> {
     const places = [{
+      _id: 1,
       name: 'Le bouillon belge',
       users: [{
         pseudo: 'Snoop dog',
@@ -38,6 +39,7 @@ export class NewsFeedService {
       }],
 
     },{
+      _id: 2,
       name: 'Paris Hanoi',
       users: [{
         pseudo: 'Busta Rhymes',

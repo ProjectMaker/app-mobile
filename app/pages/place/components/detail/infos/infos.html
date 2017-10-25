@@ -1,5 +1,8 @@
 <ScrollView>
-  <StackLayout class="page">
+  <StackLayout  verticalAlignment="center" *ngIf="!place" height="100%">
+    <ActivityIndicator [busy]="true"></ActivityIndicator>
+  </StackLayout>
+  <StackLayout class="page" *ngIf="place">
     <Label [text]="place.name" class="h2"></Label>
     <card-place [place]="place" class="m-b-20"></card-place>
   </StackLayout>

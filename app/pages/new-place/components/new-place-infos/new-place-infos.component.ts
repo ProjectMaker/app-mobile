@@ -25,7 +25,7 @@ export class NewPlaceInfosComponent implements OnInit {
 
   constructor(private placeService:PlaceService, private fb:FormBuilder) { }
   public ngOnInit() {
-    this.place = this.placeService.getPlace();
+    this.place = this.placeService.getPlace(1);
 
     this.initForm();
   }
