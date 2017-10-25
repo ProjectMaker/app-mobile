@@ -32,6 +32,13 @@ components that have the btn class name.
     font-family: FontAwesome, fontawesome-webfont;
 }
 
+.fa__2x {
+    font-size: 20;
+}
+.fa__4x {
+    font-size: 40;
+}
+
 .place-star {
     margin-right: 10;
 }
@@ -40,3 +47,6 @@ components that have the btn class name.
     color: #b58900;
 }
 
+.test {
+    font-size: 20;
+}

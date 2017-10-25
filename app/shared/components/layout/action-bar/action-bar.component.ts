@@ -1,4 +1,5 @@
 import { Component, Output, EventEmitter, OnInit } from "@angular/core";
+import { TNSFontIconService } from 'nativescript-ngx-fonticon';
 
 @Component({
   selector: 'app-action-bar',
@@ -8,6 +9,8 @@ import { Component, Output, EventEmitter, OnInit } from "@angular/core";
 export class ActionBarComponent implements OnInit {
   @Output() openMenu = new EventEmitter();
 
+  public constructor(private fonticon:TNSFontIconService) { }
+  
   public ngOnInit() {
     console.log('ON INIT');
   }
