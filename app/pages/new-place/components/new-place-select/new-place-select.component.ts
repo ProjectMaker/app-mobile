@@ -19,7 +19,8 @@ export class NewPlaceSelectComponent implements OnInit {
   public constructor(private placeService:PlaceService, private routerExtensions:RouterExtensions) { }
 
   public ngOnInit() {
-    this.places = this.placeService.getPlaces();
+    const position:any = {};
+    this.places = this.placeService.searchPlaces(position);
     this.places.push({
         name: 'Le lieu n\' est pas dans la liste',
         footer: true
