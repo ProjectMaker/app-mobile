@@ -7,7 +7,7 @@ import { PlaceDetailNewsFeedComponent } from './components/detail/news-feed/news
 export const routes = [
   { path: 'places', component: PlaceListLayoutComponent },
   { path: 'place-share/:id', component: PlaceShareLayoutComponent },
-  { path: 'place/detail', component: PlaceDetailLayoutComponent, children: [
+  { path: 'place/:id', component: PlaceDetailLayoutComponent, children: [
     { path: 'infos', component: PlaceDetailInfosComponent },
     { path: 'news-feed', component: PlaceDetailNewsFeedComponent }
   ]}

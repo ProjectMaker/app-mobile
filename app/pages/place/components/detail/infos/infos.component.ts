@@ -1,4 +1,7 @@
 import { Component, OnInit } from "@angular/core";
+import { PageRoute } from "nativescript-angular/router";
+import "rxjs/add/operator/switchMap";
+
 import { PlaceService } from '../../../../../core/services'
 
 @Component({
@@ -9,9 +12,15 @@ import { PlaceService } from '../../../../../core/services'
 export class PlaceDetailInfosComponent implements OnInit {
   protected place:any;
 
-  public constructor(private placeService:PlaceService) { }
+  public constructor(private placeService:PlaceService, private pageRoute:PageRoute) { }
 
   public ngOnInit() {
-    this.place = this.placeService.getPlace();
+    this.pageRoute.activatedRoute
+      .switchMap(activatedRoute => activatedRoute.params)
+      .subscribe(
+        (params) => {
+          this.place = this.placeService.getPlace(parseInt(params['id']));
+        }
+      );
   }
 }

@@ -13,7 +13,7 @@ import { ProfileModule } from './pages/profile/profile.module';
 
 import { CoreModule } from './core/core.module';
 import { TNSFontIconModule, TNSFontIconService } from 'nativescript-ngx-fonticon';
-TNSFontIconService.debug = true;
+//TNSFontIconService.debug = true;
 
 @NgModule({
   declarations: [
