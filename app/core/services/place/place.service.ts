@@ -32,4 +32,8 @@ export class PlaceService {
 
     return this.places;
   }
+
+  public addPlace(place:any) {
+    if (this.places) this.places.push(place);
+  }
 }
