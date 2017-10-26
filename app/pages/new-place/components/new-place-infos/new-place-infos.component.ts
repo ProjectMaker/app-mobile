@@ -20,6 +20,7 @@ const CONTEXT_VALUES = [
 })
 export class NewPlaceInfosComponent implements OnInit {
   protected place:any;
+  protected experiences:any;
   public form:FormGroup;
   public noteCtrl:AbstractControl;
   public contextsCtrl:AbstractControl;
@@ -29,29 +30,35 @@ export class NewPlaceInfosComponent implements OnInit {
   public ngOnInit() {
     //console.log('ngOnInit', this.route.snapshot.queryParams['new'], this.route.snapshot.params['id']);
     this.place = this.placeService.searchPlaceById(this.route.snapshot.params.id);
-    this.place.contexts = [];
+    this.experiences = {
+      userId: 1,
+      contexts: [],
+      note: 0,
+      comment: ''
+    };
     this.initForm();
   }
 
   protected onChangeContext(event:any, context:any) {
     if (event.object.checked) {
-      if (this.place.contexts.indexOf(context.value) === -1) this.place.contexts.push(context.value);
+      if (this.experiences.contexts.indexOf(context.value) === -1) this.experiences.contexts.push(context.value);
     } else {
-      this.place.contexts = this.place.contexts.filter(value => value !== context.value);
+      this.experiences.contexts = this.experiences.contexts.filter(value => value !== context.value);
     }
 
-    this.contextsCtrl.setValue(this.place.contexts.join(','));
+    this.contextsCtrl.setValue(this.experiences.contexts.join(','));
   }
 
   protected onChangeStar(note:number) {
-    if (this.place.note !== note) this.place.note = note;
-    else this.place.note = 0;
-    this.noteCtrl.setValue(this.place.note);
+    if (this.experiences.note !== note) this.experiences.note = note;
+    else this.experiences.note = 0;
+    this.noteCtrl.setValue(this.experiences.note);
   }
 
   protected onSubmit() {
     if (this.form.valid) {
-      this.place.comment = this.form.controls['comment'].value;
+      this.experiences.comment = this.form.controls['comment'].value;
+      this.placeService.addPlace(this.place, this.experiences);
     }
   }
 

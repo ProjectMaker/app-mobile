@@ -6,16 +6,16 @@
         <Label *ngFor="let star of [1,2,3,4,5]"
                [text]="'fa-star' | fonticon"
                class="fa fa__2x"
-               [class.place-star-selected]="place.note >= star"
+               [class.place-star-selected]="experiences.note >= star"
                (tap)="onChangeStar(star)"></Label>
       </StackLayout>
       <StackLayout row="2" class="place-context-container">
         <CheckBox *ngFor="let context of contextValues"
-                  [text]="context.label" [checked]="place.contexts | placeContextChecked:context"
+                  [text]="context.label" [checked]="experiences.contexts | placeContextChecked:context"
                   (checkedChange)="onChangeContext($event, context)"></CheckBox>
       </StackLayout>
       <StackLayout row="3" class="place-comments-container">
-        <TextView hint="Laisser un commentaire" formControlName="comment" [text]="place.comment" returnKeyType="done"></TextView>
+        <TextView hint="Laisser un commentaire" formControlName="comment" [text]="experiences.comment" returnKeyType="done"></TextView>
       </StackLayout>
     </StackLayout>
     <Button row="3" text="Suivant" (tap)="onSubmit()" [isEnabled]="true" class="btn btn-primary" [class.disabled]="form.invalid"></Button>
