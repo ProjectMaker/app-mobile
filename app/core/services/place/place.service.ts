@@ -64,6 +64,7 @@ export class PlaceService {
         const oldPlace = this.places.find(_place => _place._id === place.id);
         oldPlace.experiences.push(experiences);
       } else {
+        place._id = UUID.UUID();
         place.experiences = [experiences];
         this.places.push(place);
       }
