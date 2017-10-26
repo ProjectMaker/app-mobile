@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { TNSFontIconService } from 'nativescript-ngx-fonticon';
+
 import { PlaceService } from '../../../../core/services';
 
 const CONTEXT_VALUES = [
@@ -23,10 +26,11 @@ export class NewPlaceInfosComponent implements OnInit {
   public contextValues:Array<any> = CONTEXT_VALUES;
   public iconStar:string = String.fromCharCode(0xf005);
 
-  constructor(private placeService:PlaceService, private fb:FormBuilder) { }
+  constructor(private placeService:PlaceService, private fb:FormBuilder, private route:ActivatedRoute, private fonticon:TNSFontIconService) { }
   public ngOnInit() {
-    this.place = this.placeService.getPlace(1);
-
+    //console.log('ngOnInit', this.route.snapshot.queryParams['new'], this.route.snapshot.params['id']);
+    this.place = this.placeService.searchPlaceById(this.route.snapshot.params.id);
+    this.place.contexts = [];
     this.initForm();
   }
 

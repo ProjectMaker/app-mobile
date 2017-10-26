@@ -4,8 +4,8 @@
     <StackLayout row="1" [formGroup]="form">
       <StackLayout orientation="horizontal" row="1" class="place-star-container">
         <Label *ngFor="let star of [1,2,3,4,5]"
-               text="{{ iconStar }}"
-               class="fa fa-2 place-star"
+               [text]="'fa-star' | fonticon"
+               class="fa fa__2x"
                [class.place-star-selected]="place.note >= star"
                (tap)="onChangeStar(star)"></Label>
       </StackLayout>
