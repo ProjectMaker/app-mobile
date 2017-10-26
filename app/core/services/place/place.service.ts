@@ -12,6 +12,12 @@ export class PlaceService {
     return places;
   }
 
+  public searchPlaceById(id:string) {
+    const places = require('./search-places.id.mock.json');
+
+    return places.find(place => place.placeId === id);
+  }
+
   public getPlace(id:number):any {
     return this.getPlaces().find(place => place._id === id);
   }
