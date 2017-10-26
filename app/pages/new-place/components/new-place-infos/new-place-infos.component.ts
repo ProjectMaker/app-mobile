@@ -24,7 +24,6 @@ export class NewPlaceInfosComponent implements OnInit {
   public noteCtrl:AbstractControl;
   public contextsCtrl:AbstractControl;
   public contextValues:Array<any> = CONTEXT_VALUES;
-  public iconStar:string = String.fromCharCode(0xf005);
 
   constructor(private placeService:PlaceService, private fb:FormBuilder, private route:ActivatedRoute, private fonticon:TNSFontIconService) { }
   public ngOnInit() {
