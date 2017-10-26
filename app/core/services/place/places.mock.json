@@ -1,28 +1,17 @@
 [{
-  "_id": 1, "name": "Le bouillon belge",
+  "_id": 1,
+  "name": "Le bouillon belge",
+  "phone": "+33665433455",
   "address": {
     "streetNumber": "46",
     "route": "rue des haies",
     "city": "Paris",
     "postalCode": "75020"
   },
-  "phone": "+33665433455", "openHours": "11:30 - 19:00", "contexts": ["friend","couple"]
-}, {
-  "_id": 2, "name": "Paris Hanoi",
-  "address": {
-    "streetNumber": "46",
-    "route": "rue des haies",
-    "city": "Paris",
-    "postalCode": "75020"
-  },
-  "phone": "+33665433455", "openHours": "11:30 - 19:00", "contexts": ["friend","couple"]
-}, {
-  "_id": 1, "name": "Boucher",
-  "address": {
-    "streetNumber": "46",
-    "route": "rue des haies",
-    "city": "Paris",
-    "postalCode": "75020"
-  },
-  "phone": "+33665433455", "openHours": "11:30 - 19:00", "contexts": ["friend","couple"]
+  "openHours": [
+    { "day": 0, "open": "1700", "close": "0000"}
+  ],
+  "experiences": [
+    { "userId": 1, "contexts": ["friend", "couple"], "comment": "" }
+  ]
 }]

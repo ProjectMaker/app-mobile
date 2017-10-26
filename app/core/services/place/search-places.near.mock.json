@@ -1,0 +1,18 @@
+[{
+  "placeId": "ChIJaYI7bndy5kcRvE-L7V1pXS8",
+  "name": "Le bouillon belge",
+  "geometry" : {
+    "location" : {
+      "lat" : 48.85202700000001,
+      "lng" : 2.399411
+    }
+  }
+}, {
+  "placeId": "ChIJmwZfaXdy5kcRP1kavfuqtiw",
+  "name": "Chez Younice Restaurant Marocain",
+  "geometry": { "location": {"latitude":48.8516202,"longitude":2.3992726} }
+}, {
+  "placeId": "ChIJIdxmb3dy5kcRTFqJXZvjdHM",
+  "name": "Le bistrot d Avron",
+  "geometry": { "location": {"latitude":48.851729,"longitude":2.399721} }
+}]
