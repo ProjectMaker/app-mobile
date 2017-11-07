@@ -48,7 +48,7 @@ export class NewPlaceInfosComponent implements OnInit, AfterViewInit, OnDestroy 
   public ngOnDestroy() {
     this.pageEltRef.nativeElement.off(gestures.GestureTypes.tap)
   }
-  
+
   public ngAfterViewInit() {
     const textView:TextView = this.commentEltRef.nativeElement;
     this.pageEltRef.nativeElement.observe(gestures.GestureTypes.tap, function (args) {

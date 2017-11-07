@@ -4,12 +4,13 @@ import { NativeScriptUISideDrawerModule } from "nativescript-pro-ui/sidedrawer/a
 import { NativeScriptFormsModule } from "nativescript-angular/forms";
 import { ReactiveFormsModule } from '@angular/forms';
 import { TNSCheckBoxModule } from 'nativescript-checkbox/angular';
+import { TNSFontIconModule, TNSFontIconService } from 'nativescript-ngx-fonticon';
 
 import { LayoutComponent, ActionBarComponent, MenuComponent } from './components/layout';
 import { CardPlaceComponent } from './components/card/place/card-place.component';
 import { NewsFeedComponent } from './components/news-feed/news-feed.component';
 import { BottomBarComponent } from './components/bottom-bar/bottom-bar.component';
-import { TNSFontIconModule, TNSFontIconService } from 'nativescript-ngx-fonticon';
+import { FloatButtonComponent } from './components/float-button/float-button.component';
 
 import { PIPES } from './pipes';
 
@@ -21,6 +22,7 @@ import { PIPES } from './pipes';
     CardPlaceComponent,
     NewsFeedComponent,
     BottomBarComponent,
+    FloatButtonComponent,
     ...PIPES
   ],
   imports: [
@@ -36,6 +38,7 @@ import { PIPES } from './pipes';
     CardPlaceComponent,
     NewsFeedComponent,
     BottomBarComponent,
+    FloatButtonComponent,
     NativeScriptFormsModule,
     ReactiveFormsModule,
     TNSCheckBoxModule,

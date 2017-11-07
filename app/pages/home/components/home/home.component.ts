@@ -20,4 +20,8 @@ export class HomeComponent implements OnInit {
   protected templateSelector(item: any, index: number, items: any) {
     return item.type;
   }
+
+  protected onAddPlace() {
+    console.log('ADD PLACE');
+  }
 }
