@@ -1,7 +1,7 @@
 <RadSideDrawer tkExampleTitle tkToggleNavButton>
-  <app-menu tkDrawerContent (selectedItem)="onSelectItem($event)"></app-menu>
+  <StackLayout tkDrawerContent appMenu (selectedItem)="onSelectItem($event)"></StackLayout>
   <StackLayout tkMainContent>
     <app-action-bar (openMenu)="onOpenMenu($event)"></app-action-bar>
-    <div #content></div>
+    <StackLayout #content></StackLayout>
   </StackLayout>
 </RadSideDrawer>

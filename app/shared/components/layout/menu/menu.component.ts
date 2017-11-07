@@ -2,7 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   moduleId: module.id,
-  selector: 'app-menu',
+  selector: 'app-menu, [appMenu]',
   templateUrl: 'menu.html',
   styleUrls: ['./menu.common.css']
 })
