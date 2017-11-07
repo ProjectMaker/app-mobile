@@ -53,7 +53,7 @@ export class PlaceService {
   }
 
   public getPlaces():Array<any> {
-    if (!this.places) this.places = [];//require('./places.mock.json');
+    if (!this.places) this.places = require('./places.mock.json');
 
     return this.places;
   }
