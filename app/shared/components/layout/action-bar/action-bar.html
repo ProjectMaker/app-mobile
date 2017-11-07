@@ -1,4 +1,5 @@
 <ActionBar title="Hi Jerry">
+  <NavigationButton text="Back" android.systemIcon = "ic_menu_back" *ngIf="showBackButton" (tap)="onBackPage()"></NavigationButton>
   <ActionItem (tap)="onOpenMenu()">
     <Button class="fa fa__2x" [text]="'fa-bars' | fonticon"></Button>
   </ActionItem>

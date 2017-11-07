@@ -1,4 +1,6 @@
 import { Component, Output, EventEmitter, OnInit } from "@angular/core";
+import { RouterExtensions } from 'nativescript-angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 import { TNSFontIconService } from 'nativescript-ngx-fonticon';
 
 import application = require('application');
@@ -10,14 +12,22 @@ import application = require('application');
 })
 export class ActionBarComponent implements OnInit {
   protected isAndroid:boolean = application.android ? true : false;
+  protected showBackButton:boolean = false;
   @Output() openMenu = new EventEmitter();
 
-  public constructor(private fonticon:TNSFontIconService) { }
+  public constructor(private router:Router, private routerExtensions:RouterExtensions, private fonticon:TNSFontIconService) { }
   
   public ngOnInit() {
-    console.log('ON INIT');
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        this.showBackButton = this.routerExtensions.canGoBackToPreviousPage();
+      }
+    });
   }
-  
+
+  protected onBackPage() {
+    this.routerExtensions.backToPreviousPage();
+  }
   protected onOpenMenu() {
     this.openMenu.next();
   }
