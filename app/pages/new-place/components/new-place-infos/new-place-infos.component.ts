@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
 import { AbstractControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { TNSFontIconService } from 'nativescript-ngx-fonticon';
+
+import { TextView } from "ui/text-view";
+const gestures = require('ui/gestures');
 
 import { PlaceService } from '../../../../core/services';
 
@@ -18,7 +21,7 @@ const CONTEXT_VALUES = [
   templateUrl: './new-place-infos.html',
   styleUrls: ["./new-place-infos.common.css", "./new-place-infos.css"],
 })
-export class NewPlaceInfosComponent implements OnInit {
+export class NewPlaceInfosComponent implements OnInit, AfterViewInit, OnDestroy {
   protected place:any;
   protected experiences:any;
   public form:FormGroup;
@@ -26,7 +29,10 @@ export class NewPlaceInfosComponent implements OnInit {
   public contextsCtrl:AbstractControl;
   public contextValues:Array<any> = CONTEXT_VALUES;
 
+  @ViewChild("page") pageEltRef: ElementRef;
+  @ViewChild("comment") public commentEltRef: ElementRef;
   constructor(private placeService:PlaceService, private fb:FormBuilder, private route:ActivatedRoute, private fonticon:TNSFontIconService) { }
+
   public ngOnInit() {
     //console.log('ngOnInit', this.route.snapshot.queryParams['new'], this.route.snapshot.params['id']);
     this.place = this.placeService.searchPlaceById(this.route.snapshot.params.id);
@@ -37,6 +43,17 @@ export class NewPlaceInfosComponent implements OnInit {
       comment: ''
     };
     this.initForm();
+  }
+
+  public ngOnDestroy() {
+    this.pageEltRef.nativeElement.off(gestures.GestureTypes.tap)
+  }
+  
+  public ngAfterViewInit() {
+    const textView:TextView = this.commentEltRef.nativeElement;
+    this.pageEltRef.nativeElement.observe(gestures.GestureTypes.tap, function (args) {
+      textView.dismissSoftInput();
+    });
   }
 
   protected onChangeContext(event:any, context:any) {
