@@ -1,9 +1,4 @@
-.float-btn-wrapper {
-    width: 75;
-    height: 75;
-}
-
-.float-btn {
+.float-button {
     background-color: #30bcff;
     border-radius: 28;
     width: 56;
@@ -12,17 +7,24 @@
     vertical-align: middle;
 }
 
-.float-btn-shadow {
+.float-button__wrapper {
+    width: 75;
+    height: 75;
+}
+
+
+.float-button__shadow {
     width: 56;
     height: 56;
 }
 
-.float-btn.down {
+.float-button__down {
     animation-name: down;
     animation-duration: 0.2s;
     animation-fill-mode: forwards;
 }
-.float-btn-text {
+
+.float-button__text {
     color: #ffffff;
     font-size: 36;
     margin-top: -4;

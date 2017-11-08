@@ -28,8 +28,8 @@ export class FloatButtonComponent {
 
   protected onTouch(args: TouchGestureEventData) {
     /*
-    if (args.action === 'down') args.view.className = 'float-btn down';
-    else if (args.action === 'up') args.view.className = 'float-btn';
+    if (args.action === 'down') args.view.className = 'float-button float-button__down';
+    else if (args.action === 'up') args.view.className = 'float-button';
     */
   }
 
