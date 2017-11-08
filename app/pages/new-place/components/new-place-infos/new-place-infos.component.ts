@@ -4,7 +4,8 @@ import { ActivatedRoute } from '@angular/router';
 import { TNSFontIconService } from 'nativescript-ngx-fonticon';
 
 import { TextView } from "ui/text-view";
-const gestures = require('ui/gestures');
+import { GridLayout } from "ui/layouts/grid-layout";
+import { GestureTypes } from 'ui/gestures';
 
 import { PlaceService } from '../../../../core/services';
 
@@ -21,7 +22,9 @@ const CONTEXT_VALUES = [
   templateUrl: './new-place-infos.html',
   styleUrls: ["./new-place-infos.common.css", "./new-place-infos.css"],
 })
-export class NewPlaceInfosComponent implements OnInit, AfterViewInit, OnDestroy {
+export class NewPlaceInfosComponent implements OnInit, OnDestroy {
+  private pageView:GridLayout;
+  private commentView:TextView;
   protected place:any;
   protected experiences:any;
   public form:FormGroup;
@@ -29,8 +32,6 @@ export class NewPlaceInfosComponent implements OnInit, AfterViewInit, OnDestroy 
   public contextsCtrl:AbstractControl;
   public contextValues:Array<any> = CONTEXT_VALUES;
 
-  @ViewChild("page") pageEltRef: ElementRef;
-  @ViewChild("comment") public commentEltRef: ElementRef;
   constructor(private placeService:PlaceService, private fb:FormBuilder, private route:ActivatedRoute, private fonticon:TNSFontIconService) { }
 
   public ngOnInit() {
@@ -46,14 +47,18 @@ export class NewPlaceInfosComponent implements OnInit, AfterViewInit, OnDestroy 
   }
 
   public ngOnDestroy() {
-    this.pageEltRef.nativeElement.off(gestures.GestureTypes.tap)
+    this.pageView.off(GestureTypes.tap)
   }
 
-  public ngAfterViewInit() {
-    const textView:TextView = this.commentEltRef.nativeElement;
-    this.pageEltRef.nativeElement.observe(gestures.GestureTypes.tap, function (args) {
-      textView.dismissSoftInput();
+  protected onPageLoaded(args) {
+    this.pageView = <GridLayout>args.object;
+    this.pageView.observe(GestureTypes.tap, (args) => {
+      this.commentView.dismissSoftInput();
     });
+  }
+
+  protected onCommentLoaded(args) {
+    this.commentView = <TextView>args.object;
   }
 
   protected onChangeContext(event:any, context:any) {

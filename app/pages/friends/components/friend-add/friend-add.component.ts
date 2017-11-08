@@ -21,33 +21,33 @@ export class FriendAddComponent implements OnDestroy {
   }];
 
   protected friends:Array<any> = [];
-  private searchBar:SearchBar;
-  private page:StackLayout;
+  private searchView:SearchBar;
+  private pageView:StackLayout;
   private snackbar:SnackBar = new SnackBar();
 
   public ngOnDestroy() {
-    this.page.off(GestureTypes.tap)
+    this.pageView.off(GestureTypes.tap)
   }
 
   protected onSearchBarLoaded(args) {
-    this.searchBar = <SearchBar>args.object;
+    this.searchView = <SearchBar>args.object;
     this.clearSearch();
   }
 
   protected get friendsFound() {
-    if (this.searchBar && this.searchBar.text && this.searchBar.text.length > 1 && this.friends.length) return true;
+    if (this.searchView && this.searchView.text && this.searchView.text.length > 1 && this.friends.length) return true;
     else return false;
   }
 
   protected get friendsNotFound() {
-    if (this.searchBar && this.searchBar.text && this.searchBar.text.length > 1 && !this.friends.length) return true;
+    if (this.searchView && this.searchView.text && this.searchView.text.length > 1 && !this.friends.length) return true;
     else return false;
   }
 
   protected onSearchBarChanged() {
-    if (!this.searchBar || !this.searchBar.text) return;
+    if (!this.searchView || !this.searchView.text) return;
 
-    if (this.searchBar.text.length > 1) {
+    if (this.searchView.text.length > 1) {
       this.search();
     } else this.clearSearch();
   }
@@ -61,7 +61,7 @@ export class FriendAddComponent implements OnDestroy {
       //textColor: '#346db2', // Optional, Android only
       //backgroundColor: '#eaeaea' // Optional, Android only
     };
-    this.searchBar.dismissSoftInput();
+    this.searchView.dismissSoftInput();
     this.snackbar.action(options);
   }
 
@@ -74,19 +74,19 @@ export class FriendAddComponent implements OnDestroy {
       //textColor: '#346db2', // Optional, Android only
       //backgroundColor: '#eaeaea' // Optional, Android only
     };
-    this.searchBar.dismissSoftInput();
+    this.searchView.dismissSoftInput();
     this.snackbar.action(options);
   }
 
   protected onPageLoaded(args) {
-    this.page = <StackLayout>args.object;
-    this.page.observe(GestureTypes.tap, (args) => {
-        this.searchBar.dismissSoftInput();
+    this.pageView = <StackLayout>args.object;
+    this.pageView.observe(GestureTypes.tap, (args) => {
+        this.searchView.dismissSoftInput();
       });
   }
 
   private search() {
-    this.friends = this._friends.filter((friend) => friend.pseudo.toLocaleLowerCase().indexOf(this.searchBar.text.toLocaleLowerCase()) !== -1);
+    this.friends = this._friends.filter((friend) => friend.pseudo.toLocaleLowerCase().indexOf(this.searchView.text.toLocaleLowerCase()) !== -1);
   }
 
   private clearSearch() {
