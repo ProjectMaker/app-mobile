@@ -1,8 +1,18 @@
-<ScrollView>
-  <StackLayout class="page">
-    <Label text="Fil d'actualités" class="h1"></Label>
-    <StackLayout *ngFor="let place of places" [nsRouterLink]="['place', place._id, 'infos']">
-      <news-feed [place]="place"></news-feed>
+<AbsoluteLayout>
+  <ScrollView height="100%" width="100%">
+    <StackLayout class="page">
+      <Label text="Fil d'actualités" class="h1"></Label>
+      <StackLayout *ngFor="let place of places" [nsRouterLink]="['place', place._id, 'infos']">
+        <news-feed [place]="place"></news-feed>
+      </StackLayout>
+      <Label text="Fil d'actualités" class="h1"></Label>
+      <Label text="Fil d'actualités" class="h1"></Label>
+      <Label text="Fil d'actualités" class="h1"></Label>
+      <Label text="Fil d'actualités" class="h1"></Label>
+      <Label text="Fil d'actualités" class="h1"></Label>
+      <Label text="Fil d'actualités" class="h1"></Label>
+      <Label text="Fil d'actualités" class="h1"></Label>
+      <Label text="Fil d'actualités" class="h1"></Label>
     </StackLayout>
-  </StackLayout>
-</ScrollView>
+  </ScrollView>
+</AbsoluteLayout>

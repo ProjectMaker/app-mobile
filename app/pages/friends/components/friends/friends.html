@@ -1,11 +1,15 @@
-<StackLayout class="page">
-  <Label text="Mes amis" class="m-b-20"></Label>
-  <ScrollView>
-    <FlexboxLayout flexWrap="wrap" justifyContent="space-between">
-      <StackLayout *ngFor="let friend of friends" [flexGrow]="friend === friends[0] ? 1 : 0"  class="m-b-5" [nsRouterLink]="['/friend', friend._id]">
-        <Image src="{{ friend.img }}" stretch="none"></Image>
-        <Label text="{{ friend.pseudo }}" textAlignment="center"></Label>
-      </StackLayout>
-    </FlexboxLayout>
+<AbsoluteLayout>
+  <ScrollView height="100%" width="100%">
+    <StackLayout class="page">
+      <FlexboxLayout flexWrap="wrap" justifyContent="space-between">
+        <StackLayout *ngFor="let friend of friends" [flexGrow]="friend === friends[0] ? 1 : 0"  class="m-b-5" [nsRouterLink]="['/friend', friend._id]">
+          <Image src="{{ friend.img }}" stretch="none"></Image>
+          <Label text="{{ friend.pseudo }}" textAlignment="center"></Label>
+        </StackLayout>
+      </FlexboxLayout>
+    </StackLayout>
   </ScrollView>
-</StackLayout>
+  <StackLayout class="float-button__container">
+    <float-button (tap)="onGoToAdd($event)"></float-button>
+  </StackLayout>
+</AbsoluteLayout>

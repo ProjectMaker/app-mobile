@@ -50,3 +50,8 @@ components that have the btn class name.
 .test {
     font-size: 20;
 }
+
+.float-button__container {
+    margin-top: 80%;
+    margin-left: 80%;
+}

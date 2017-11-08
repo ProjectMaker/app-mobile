@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-//import * as repeaterModule from "tns-core-modules/ui/repeater";
+import { RouterExtensions } from 'nativescript-angular/router';
 
 @Component({
   moduleId: module.id,
@@ -8,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FriendsComponent implements OnInit {
   protected friends:Array<any> = [];
+
+  public constructor(private routerExtensions: RouterExtensions) { }
 
   public ngOnInit() {
     this.friends = [{
@@ -19,5 +21,9 @@ export class FriendsComponent implements OnInit {
     }, {
       _id: 4, pseudo: 'Big L', img: '~/images/friend.png'
     }]
+  }
+
+  protected onGoToAdd() {
+    this.routerExtensions.navigate(['friend-add']);
   }
 }

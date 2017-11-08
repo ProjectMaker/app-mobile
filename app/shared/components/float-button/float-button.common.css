@@ -1,0 +1,36 @@
+.float-button {
+    background-color: #30bcff;
+    border-radius: 28;
+    width: 56;
+    height: 56;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.float-button__wrapper {
+    width: 75;
+    height: 75;
+}
+
+
+.float-button__shadow {
+    width: 56;
+    height: 56;
+}
+
+.float-button__down {
+    animation-name: down;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
+}
+
+.float-button__text {
+    color: #ffffff;
+    font-size: 36;
+    margin-top: -4;
+}
+
+@keyframes down {
+    from { background-color: #30bcff; }
+    to { background-color: purple; }
+}
