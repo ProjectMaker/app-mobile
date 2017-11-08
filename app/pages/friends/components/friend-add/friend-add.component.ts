@@ -1,13 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { SearchBar } from "ui/search-bar";
 import { SnackBar, SnackBarOptions } from "nativescript-snackbar";
+import { StackLayout } from 'ui/layouts/stack-layout';
+import { GestureTypes } from 'ui/gestures';
 
 @Component({
   moduleId: module.id,
   selector: 'app-friend-add',
   templateUrl: './friend-add.html'
 })
-export class FriendAddComponent {
+export class FriendAddComponent implements OnDestroy {
   private _friends:Array<any> = [{
     _id: 1, pseudo: 'Phife'
   },{
@@ -20,7 +22,12 @@ export class FriendAddComponent {
 
   protected friends:Array<any> = [];
   private searchBar:SearchBar;
+  private page:StackLayout;
   private snackbar:SnackBar = new SnackBar();
+
+  public ngOnDestroy() {
+    this.page.off(GestureTypes.tap)
+  }
 
   protected onSearchBarLoaded(args) {
     this.searchBar = <SearchBar>args.object;
@@ -38,7 +45,7 @@ export class FriendAddComponent {
   }
 
   protected onSearchBarChanged() {
-    if (!this.searchBar.text) return;
+    if (!this.searchBar || !this.searchBar.text) return;
 
     if (this.searchBar.text.length > 1) {
       this.search();
@@ -54,6 +61,7 @@ export class FriendAddComponent {
       //textColor: '#346db2', // Optional, Android only
       //backgroundColor: '#eaeaea' // Optional, Android only
     };
+    this.searchBar.dismissSoftInput();
     this.snackbar.action(options);
   }
 
@@ -66,7 +74,15 @@ export class FriendAddComponent {
       //textColor: '#346db2', // Optional, Android only
       //backgroundColor: '#eaeaea' // Optional, Android only
     };
+    this.searchBar.dismissSoftInput();
     this.snackbar.action(options);
+  }
+
+  protected onPageLoaded(args) {
+    this.page = <StackLayout>args.object;
+    this.page.observe(GestureTypes.tap, (args) => {
+        this.searchBar.dismissSoftInput();
+      });
   }
 
   private search() {
