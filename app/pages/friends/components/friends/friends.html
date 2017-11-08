@@ -2,8 +2,8 @@
   <ScrollView height="100%" width="100%">
     <StackLayout class="page">
       <FlexboxLayout flexWrap="wrap" justifyContent="space-between">
-        <StackLayout *ngFor="let friend of friends" [flexGrow]="friend === friends[0] ? 1 : 0"  class="m-b-5" [nsRouterLink]="['/friend', friend._id]">
-          <Image src="{{ friend.img }}" stretch="none"></Image>
+        <StackLayout *ngFor="let friend of friends" [flexGrow]="friend === friends[0] ? 1 : 0"  class="m-5" width="150" [nsRouterLink]="['/friend', friend._id]">
+          <Image src="{{ friend.img }}" stretch="aspectFill" height="150"></Image>
           <Label text="{{ friend.pseudo }}" textAlignment="center"></Label>
         </StackLayout>
       </FlexboxLayout>

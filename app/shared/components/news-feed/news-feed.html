@@ -8,7 +8,7 @@
       </StackLayout>
       <StackLayout *ngIf="content.type === 'photo'">
         <FlexboxLayout flexWrap="wrap" justifyContent="space-between">
-          <StackLayout *ngFor="let image of content.images" [flexGrow]="image === content.images[0] ? 1 : 0"  class="m-5" width="20%">
+          <StackLayout *ngFor="let image of content.images" [flexGrow]="image === content.images[0] ? 1 : 0"  class="m-5" width="150">
             <Image src="~/images/friend.png" stretch="aspectFill" height="150"></Image>
           </StackLayout>
         </FlexboxLayout>
