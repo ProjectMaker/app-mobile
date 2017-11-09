@@ -10,7 +10,8 @@ export const routes = [
   { path: 'place/:id', component: PlaceDetailLayoutComponent, children: [
     { path: 'infos', component: PlaceDetailInfosComponent },
     { path: 'news-feed', component: PlaceDetailNewsFeedComponent }
-  ]}
+  ]},
+  { path: '', pathMatch: 'full', redirectTo: 'place/1/infos' }
 ];
 
 export const navigatableComponents = [

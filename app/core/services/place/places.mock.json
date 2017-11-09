@@ -1,5 +1,6 @@
 [{
   "_id": 1,
+  "placeId": "ChIJaYI7bndy5kcRvE-L7V1pXS8",
   "name": "Le bouillon belge",
   "phone": "+33665433455",
   "address": {
@@ -11,7 +12,10 @@
   "openHours": [
     { "day": 0, "open": "1700", "close": "0000"}
   ],
-  "experiences": [
+  "myExperiences": [
+    { "contexts": ["friend", "couple"], "comment": "J'ai adoré", "createdAt": "2017/06/09", "note": 2 }
+  ],
+  "friendsExperiences": [
     { "userId": 1, "contexts": ["friend", "couple"], "comment": "" }
   ]
 }]

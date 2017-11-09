@@ -26,6 +26,6 @@ export class PlaceListComponent implements OnInit {
   }
 
   protected onMoreInfos(place) {
-    this.routerExtensions.navigate(['place/detail/infos']);
+    this.routerExtensions.navigate(['place', place._id, 'infos']);
   }
 }

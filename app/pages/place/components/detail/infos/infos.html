@@ -1,9 +1,34 @@
-<ScrollView>
+<TabView selectedIndex="0"  sdkExampleTitle sdkToggleNavButton>
+  <StackLayout *tabItem="{title: 'Infos'}">
+    <ScrollView>
+      <StackLayout class="page" *ngIf="place">
+        <Label [text]="place.name" class="h2"></Label>
+        <card-place [place]="place" class="m-b-20"></card-place>
+      </StackLayout>
+    </ScrollView>
+  </StackLayout>
+  <StackLayout *tabItem="{title: 'Mes expériences'}">
+    <ScrollView>
+      <StackLayout class="page" *ngIf="place">
+        <StackLayout *ngFor="let experience of place.myExperiences">
+          <Label [text]="experience.createdAt" class="font-weight-bold"></Label>
+          <StackLayout orientation="horizontal" row="1" class="place-star-container">
+            <Label *ngFor="let star of [1,2,3,4,5]"
+                   [text]="'fa-star' | fonticon"
+                   class="fa fa__2x"
+                   [class.place-star-selected]="experience.note >= star"></Label>
+          </StackLayout>
+          <StackLayout orientation="horizontal">
+            <Label class="m-r-5 font-weight-bold" text="Commentaire :"></Label>
+            <Label [text]="experience.comment"></Label>
+          </StackLayout>
+        </StackLayout>
+      </StackLayout>
+    </ScrollView>
+  </StackLayout>
+</TabView>
+
   <StackLayout  verticalAlignment="center" *ngIf="!place" height="100%">
     <ActivityIndicator [busy]="true"></ActivityIndicator>
   </StackLayout>
-  <StackLayout class="page" *ngIf="place">
-    <Label [text]="place.name" class="h2"></Label>
-    <card-place [place]="place" class="m-b-20"></card-place>
-  </StackLayout>
-</ScrollView>
+
