@@ -1,5 +1,4 @@
 import { Injectable } from "@angular/core";
-import { Observable } from "rxjs/Rx";
 import { UUID } from 'angular2-uuid';
 
 @Injectable()
@@ -17,6 +16,7 @@ export class PlaceService {
 
   public addPlace(place:any, experiences:any) {
     if (this.places) {
+      experiences.createdAt = new Date().toJSON();
       if (place._id) {
         const oldPlace = this.places.find(_place => _place._id === place._id);
         oldPlace.myExperiences.push(experiences);

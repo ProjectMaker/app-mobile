@@ -2,7 +2,7 @@
   <ScrollView height="100%" width="100%">
     <StackLayout class="page" >
       <StackLayout *ngFor="let experience of place.myExperiences">
-        <Label [text]="experience.createdAt" class="font-weight-bold"></Label>
+        <Label [text]="experience.createdAt | amLocal | amDateFormat: 'YYYY-MM-DD HH:mm'" class="font-weight-bold"></Label>
         <StackLayout orientation="horizontal" row="1" class="place-star-container">
           <Label *ngFor="let star of [1,2,3,4,5]"
                  [text]="'fa-star' | fonticon"

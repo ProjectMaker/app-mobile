@@ -14,7 +14,7 @@
     { "openDay": 1, "closeDay": 2, "openTime": "1700", "closeTime": "0200"}
   ],
   "myExperiences": [
-    { "contexts": ["friend", "couple"], "comment": "J'ai adoré", "createdAt": "2017/06/09", "note": 2 }
+    { "contexts": ["friend", "couple"], "comment": "J'ai adoré", "createdAt": "2017-11-09T10:45:32.913Z", "note": 2 }
   ],
   "friendsExperiences": [
     { "userId": 1, "contexts": ["friend", "couple"], "comment": "" }

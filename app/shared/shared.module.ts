@@ -5,6 +5,7 @@ import { NativeScriptFormsModule } from "nativescript-angular/forms";
 import { ReactiveFormsModule } from '@angular/forms';
 import { TNSCheckBoxModule } from 'nativescript-checkbox/angular';
 import { TNSFontIconModule, TNSFontIconService } from 'nativescript-ngx-fonticon';
+import { MomentModule } from 'angular2-moment'
 
 import { LayoutComponent, ActionBarComponent, MenuComponent } from './components/layout';
 import { CardPlaceComponent } from './components/card/place/card-place.component';
@@ -32,6 +33,7 @@ import { PIPES } from './pipes';
     NativeScriptFormsModule,
     ReactiveFormsModule,
     TNSCheckBoxModule,
+    MomentModule
   ],
   exports: [
     LayoutComponent,
@@ -43,6 +45,7 @@ import { PIPES } from './pipes';
     ReactiveFormsModule,
     TNSCheckBoxModule,
     TNSFontIconModule,
+    MomentModule,
     ...PIPES
   ],
   schemas: [NO_ERRORS_SCHEMA],
