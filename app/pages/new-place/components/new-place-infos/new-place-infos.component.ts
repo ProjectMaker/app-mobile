@@ -9,6 +9,7 @@ import { TextView } from "ui/text-view";
 import { GridLayout } from "ui/layouts/grid-layout";
 import { GestureTypes } from 'ui/gestures';
 
+import { SearchPlaceService } from '../../../../core/services';
 import { PlaceService } from '../../../../core/services';
 
 const CONTEXT_VALUES = [
@@ -36,6 +37,7 @@ export class NewPlaceInfosComponent implements OnInit, OnDestroy {
   public contextValues:Array<any> = CONTEXT_VALUES;
 
   constructor(private placeService:PlaceService,
+              private searchPlaceService:SearchPlaceService,
               private fb:FormBuilder,
               private route:ActivatedRoute,
               private routerExtensions:RouterExtensions,
@@ -44,7 +46,7 @@ export class NewPlaceInfosComponent implements OnInit, OnDestroy {
   public ngOnInit() {
     //console.log('ngOnInit', this.route.snapshot.queryParams['new'], this.route.snapshot.params['id']);
     this.isNew = Number.parseInt(this.route.snapshot.queryParams['new']) ? true : false;
-    if (this.isNew) this.place = this.placeService.searchPlaceById(this.route.snapshot.params.id);
+    if (this.isNew) this.place = this.searchPlaceService.searchPlaceById(this.route.snapshot.params.id);
     else this.place = this.placeService.getPlace(this.route.snapshot.params.id);
     this.experiences = {
       userId: 1,

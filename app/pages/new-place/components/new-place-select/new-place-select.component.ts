@@ -3,7 +3,7 @@ import { RouterExtensions } from 'nativescript-angular/router';
 import { View } from 'ui/core/view';
 import { ListView } from 'ui/list-view';
 import { Color } from 'color';
-import { PlaceService } from '../../../../core/services';
+import { SearchPlaceService } from '../../../../core/services';
 
 @Component({
   moduleId: module.id,
@@ -16,12 +16,12 @@ export class NewPlaceSelectComponent implements OnInit {
   private list:ListView;
   protected itemSelected:any;
 
-  public constructor(private placeService:PlaceService, private routerExtensions:RouterExtensions) { }
+  public constructor(private searchPlaceService:SearchPlaceService, private routerExtensions:RouterExtensions) { }
 
   public ngOnInit() {
     console.log('SELECT onInit');
     const position:any = {};
-    this.places = [...this.placeService.searchPlaces(position)];
+    this.places = [...this.searchPlaceService.searchPlaces(position)];
     this.places.push({
         name: 'Le lieu n\' est pas dans la liste',
         footer: true
