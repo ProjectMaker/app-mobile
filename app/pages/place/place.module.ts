@@ -7,6 +7,8 @@ import { routes, navigatableComponents } from "./place.routing";
 import { PlaceListComponent } from './components/list/list.component';
 import { PlaceShareComponent } from './components/share/share.component';
 import { PlaceDetailComponent } from './components/detail/detail.component';
+import { PlaceDetailInfosComponent } from './components/detail/infos/infos.component';
+import { PlaceDetailMyExperiencesComponent } from './components/detail/my-experiences/my-experiences.component';
 
 import { SharedModule } from '../../shared/shared.module';
 
@@ -16,6 +18,8 @@ import { SharedModule } from '../../shared/shared.module';
     PlaceListComponent,
     PlaceShareComponent,
     PlaceDetailComponent,
+    PlaceDetailInfosComponent,
+    PlaceDetailMyExperiencesComponent,
     ...navigatableComponents
   ],
   imports: [

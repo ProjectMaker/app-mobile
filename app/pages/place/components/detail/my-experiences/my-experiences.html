@@ -1,0 +1,29 @@
+<AbsoluteLayout *ngIf="place">
+  <ScrollView height="100%" width="100%">
+    <StackLayout class="page" >
+      <StackLayout *ngFor="let experience of place.myExperiences">
+        <Label [text]="experience.createdAt" class="font-weight-bold"></Label>
+        <StackLayout orientation="horizontal" row="1" class="place-star-container">
+          <Label *ngFor="let star of [1,2,3,4,5]"
+                 [text]="'fa-star' | fonticon"
+                 class="fa fa__2x"
+                 [class.place-star-selected]="experience.note >= star"></Label>
+        </StackLayout>
+        <StackLayout orientation="horizontal">
+          <Label class="m-r-5 font-weight-bold" text="Contexts :"></Label>
+          <Label [text]="context" class="m-r-2" *ngFor="let context of experience.contexts"></Label>
+        </StackLayout>
+        <StackLayout orientation="horizontal">
+          <Label class="m-r-5 font-weight-bold" text="Commentaire :"></Label>
+          <Label [text]="experience.comment"></Label>
+        </StackLayout>
+      </StackLayout>
+    </StackLayout>
+  </ScrollView>
+  <StackLayout class="float-button__container">
+    <float-button (tap)="onGoToAdd($event)"></float-button>
+  </StackLayout>
+</AbsoluteLayout>
+<StackLayout  verticalAlignment="center" *ngIf="!place" height="100%">
+  <ActivityIndicator [busy]="true"></ActivityIndicator>
+</StackLayout>
