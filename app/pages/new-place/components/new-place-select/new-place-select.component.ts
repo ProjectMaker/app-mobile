@@ -45,6 +45,6 @@ export class NewPlaceSelectComponent implements OnInit {
   }
 
   protected onPlaceSelected() {
-    if (this.itemSelected) this.routerExtensions.navigate(['new-place', this.itemSelected.placeId, 'infos'], { queryParams: { new: true } });
+    if (this.itemSelected) this.routerExtensions.navigate(['new-place', this.itemSelected.placeId, 'infos'], { queryParams: { new: 1 } });
   }
 };

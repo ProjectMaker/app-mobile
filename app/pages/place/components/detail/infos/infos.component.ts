@@ -20,7 +20,7 @@ export class PlaceDetailInfosComponent implements OnInit {
       .switchMap(activatedRoute => activatedRoute.params)
       .subscribe(
         (params) => {
-          this.place = this.placeService.getPlace(parseInt(params['id']));
+          this.place = this.placeService.getPlace(params['id']);
         }
       );
   }

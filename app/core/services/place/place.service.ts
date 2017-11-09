@@ -61,11 +61,12 @@ export class PlaceService {
   public addPlace(place:any, experiences:any) {
     if (this.places) {
       if (place._id) {
-        const oldPlace = this.places.find(_place => _place._id === place.id);
-        oldPlace.experiences.push(experiences);
+        console.log('place', place._id);
+        const oldPlace = this.places.find(_place => _place._id === place._id);
+        oldPlace.myExperiences.push(experiences);
       } else {
         place._id = UUID.UUID();
-        place.experiences = [experiences];
+        place.myExperiences = [experiences];
         this.places.push(place);
       }
     }
