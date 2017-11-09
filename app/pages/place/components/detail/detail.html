@@ -1,5 +1,12 @@
-<GridLayout rows="*,auto">
-  <StackLayout row="0">
-    <router-outlet></router-outlet>
-  </StackLayout>
+<GridLayout>
+  <TabView selectedIndex="0"  sdkExampleTitle sdkToggleNavButton>
+    <StackLayout *tabItem="{title: 'Infos'}">
+      <place-detail-infos></place-detail-infos>
+    </StackLayout>
+    <StackLayout *tabItem="{title: 'Mes expériences'}">
+      <place-detail-my-experiences></place-detail-my-experiences>
+    </StackLayout>
+  </TabView>
 </GridLayout>
+
+
