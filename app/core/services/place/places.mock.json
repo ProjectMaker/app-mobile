@@ -10,7 +10,8 @@
     "postalCode": "75020"
   },
   "openHours": [
-    { "day": 0, "open": "1700", "close": "0000"}
+    { "openDay": 0, "closeDay": 1, "openTime": "1700", "closeTime": "0000"},
+    { "openDay": 1, "closeDay": 2, "openTime": "1700", "closeTime": "0200"}
   ],
   "myExperiences": [
     { "contexts": ["friend", "couple"], "comment": "J'ai adoré", "createdAt": "2017/06/09", "note": 2 }

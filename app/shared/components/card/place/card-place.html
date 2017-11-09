@@ -1,17 +1,20 @@
 <GridLayout rows="150,auto,auto">
   <Image src="~/images/friend.png" row="0" stretch="aspectFill"></Image>
-  <StackLayout row="1">
+  <StackLayout row="1" class="m-t-10">
     <StackLayout orientation="horizontal">
-      <Label [text]="'fa-map-marker' | fonticon" class="fa"></Label>
+      <Label [text]="'fa-map-marker' | fonticon" class="fa font-weight-bold m-r-5"></Label>
       <Label text="{{ place.address.streetNumber + ' ' + place.address.route }}"></Label>
     </StackLayout>
     <StackLayout orientation="horizontal">
-      <Label [text]="'fa-phone' | fonticon" class="fa fa__2x"></Label>
+      <Label [text]="'fa-phone' | fonticon" class="fa font-weight-bold m-r-5"></Label>
       <Label text="{{ place.phone }}"></Label>
     </StackLayout>
-    <StackLayout orientation="horizontal">
-      <Label [text]="'fa-clock-o' | fonticon" class="fa"></Label>
-      <Label text="{{ place.openHours }}"></Label>
+    <StackLayout orientation="horizontal" *ngIf="place.openHours.length">
+      <Label [text]="'fa-clock-o' | fonticon" class="fa font-weight-bold m-r-5"></Label>
+      <StackLayout>
+        <Label text="{{ openHour.openTime + ' - ' + openHour.closeTime }}"  *ngFor="let openHour of place.openHours"></Label>
+      </StackLayout>
+
     </StackLayout>
 
   </StackLayout>

@@ -16,7 +16,7 @@ export class SearchPlaceService {
     const places = require('./search-place.id.mock.json');
     const place = places.find(place => place.placeId === id);
 
-    const newPlace = {
+    let newPlace = {
       name: place.name,
       location: place.geometry.location,
       placeId: place.placeId,
@@ -28,7 +28,7 @@ export class SearchPlaceService {
         postalCode: '',
         country: ''
       },
-      openingHours: []
+      openHours: []
     };
 
     place.address_components.forEach(component => {
@@ -40,10 +40,11 @@ export class SearchPlaceService {
     });
 
     if (place.opening_hours) {
-      newPlace.openingHours = place.opening_hours.periods.map(period => {
-        return { day: period.open.day, open: period.open.time, close: period.close.time };
+      newPlace.openHours = place.opening_hours.periods.map(period => {
+        return { dayOpen: period.open.day, dayClose: period.close.day, openTime: period.open.time, closeTime: period.close.time };
       })
     }
+    console.log('newPlace', newPlace.openHours);
     return newPlace;
   }
 }

@@ -5,7 +5,6 @@ import { UUID } from 'angular2-uuid';
 @Injectable()
 export class PlaceService {
   private places:Array<any>;
-
   public getPlace(id:number):any {
     return this.getPlaces().find(place => place._id === id);
   }
@@ -19,7 +18,6 @@ export class PlaceService {
   public addPlace(place:any, experiences:any) {
     if (this.places) {
       if (place._id) {
-        console.log('place', place._id);
         const oldPlace = this.places.find(_place => _place._id === place._id);
         oldPlace.myExperiences.push(experiences);
       } else {
